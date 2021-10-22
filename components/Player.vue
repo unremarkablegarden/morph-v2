@@ -23,7 +23,17 @@ export default {
   head () {
     return { link: [{ rel: 'stylesheet', href: 'https://unpkg.com/vue-plyr/dist/vue-plyr.css' }] }
   },
-  props: ['data', 'type'],
+  props: {
+    data: {
+      type: Object,
+      default: {}
+    },
+    type: {
+      type: String,
+      default: 'controls'
+    }
+  },
+  // ['data', 'type'],
   data () {
     return {
       options: {
