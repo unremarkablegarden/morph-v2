@@ -1,0 +1,27 @@
+{
+  "name": "Morph",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "analysis": "windicss-analysis"
+  },
+  "dependencies": {
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7",
+    "vue-keen-slider": "^1.4.1",
+    "vue-plyr": "^7.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/prismic": "^1.3.1",
+    "nuxt-vite": "^0.3.5",
+    "nuxt-windicss": "^1.1.1",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass": "^1.43.3",
+    "sass-loader": "10"
+  }
+}
