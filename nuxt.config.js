@@ -67,11 +67,11 @@ export default {
         {
           type: 'work',
           path: '/work/:uid'
+        },
+        {
+          type: 'about',
+          path: '/about'
         }
-        // {
-        //   type: 'page',
-        //   path: '/:uid'
-        // }
       ]
     }
   },
