@@ -2,7 +2,7 @@
 #player.w-full
   .title(:class='titleColor(data)', v-if='data.title.length').absolute.z-1.uppercase.bold.text-2xl.leading-none.flex.items-center.justify-center.w-full
     | {{ data.title[0].text }}
-  
+
   vue-plyr(
     ref='plyr' 
     id='player'

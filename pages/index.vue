@@ -1,15 +1,26 @@
 <template lang="pug">
 #index(v-if='doc')
-  logo(:hide='hide')
-  .project(v-for='(p, i) in doc.project', v-if='p.link.url')
-    .loader
+  logo(:hide='hide', :fixed='true')
+
+  .project(v-for='(p, i) in doc.project', v-if='p.link.url && p.vimeo_embed && p.vimeo_embed.thumbnail_url')
     nuxt-link(:to='p.link.url')
-      player(v-if='p.vimeo_url', :data='p', type='loop')
+      .loader.w-full.absolute.z-1
+      
+      .thumb(v-if='p.vimeo_embed.thumbnail_url', :style='"background-image: url(" + p.vimeo_embed.thumbnail_url.replace("_640", "_1280") + ");"').absolute.z-0.w-full
+      
+      .title(
+        v-if='p.title.length', 
+        :class='{ "text-white": !p.color, "text-black": p.color }'
+      ).absolute.z-3.uppercase.bold.text-2xl.leading-none.flex.items-center.justify-center.w-full {{ p.title[0].text }}
+      
+      .z-2.relative
+        vimeo-thumb(v-if='p.vimeo_embed.embed_url', :embed='p.vimeo_embed', :index='i')
 </template>
 
 <script>
 export default {
   name: "index",
+  // layout: "index",
   data () {
     return {
       windowTop: 0,
@@ -48,15 +59,24 @@ export default {
 <style lang="sass" scoped>
 .project
   height: calc(100vw / 16*9) // video size
-  background: black
+  background-color: black
+  .thumb
+    height: calc(100vw / 16*9)
+    background-size: cover
+    background-position: center center
   .loader
-    position: absolute
-    width: 100vw
     height: calc(100vw / 16*9)
     background: white
     background-image: url(/loader.gif)
     background-size: 20px auto
-    background-position: center center
+    background-position: 50% 43%
     background-repeat: no-repeat
     filter: invert(100)
+    // opacity: 0.5
+    mix-blend-mode: screen
+  .title
+    height: calc(100vw / 16*9) // video size
+    font-size: 2.2vw
+    background-size: cover
+    background-position: center center
 </style>

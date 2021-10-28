@@ -26,7 +26,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/vue-plyr.js', mode: 'client' },
+    { src: '~/plugins/lazysizes.js' },
+    { src: '~/plugins/thumb.js' },
+    // { src: '@/plugins/vue-plyr.js', mode: 'client' },
     { src: '@/plugins/vue-keen-slider.js', mode: 'client' }
   ],
 
@@ -35,23 +37,24 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // 'nuxt-vite',
     'nuxt-windicss',
-    'nuxt-vite',
+    // '@nuxtjs/tailwindcss'
     '@nuxtjs/prismic'
   ],
   
-  windicss: {
-    analyze: {
-      analysis: {
-        interpretUtilities: false,
-      },
-      // see https://github.com/unjs/listhen#options
-      server: {
-        port: 4444,
-        open: true,
-      }
-    }
-  },
+  // windicss: {
+  //   analyze: {
+  //     analysis: {
+  //       interpretUtilities: false,
+  //     },
+  //     // see https://github.com/unjs/listhen#options
+  //     server: {
+  //       port: 4444,
+  //       open: true,
+  //     }
+  //   }
+  // },
   
   prismic: {
     endpoint: 'https://morph.cdn.prismic.io/api/v2',
@@ -69,9 +72,9 @@ export default {
           path: '/work/:uid'
         },
         {
-          type: 'about',
-          path: '/about'
-        }
+          type: 'page',
+          path: '/:uid'
+        }, 
       ]
     }
   },
@@ -82,5 +85,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  
+  server: {
+    host: '0' // default: localhost
   }
 }

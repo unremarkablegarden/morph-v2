@@ -1,6 +1,5 @@
 <template lang='pug'>
 #layout
-  main-header
   #content
     Nuxt
 </template>

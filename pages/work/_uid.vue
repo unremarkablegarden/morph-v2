@@ -1,32 +1,27 @@
 <template lang='pug'>
-#work(v-if='doc')
-  .container.mx-auto.my-10.flex
+#work(v-if='doc').mx-10
+  //- .container
+  .my-10.mx-auto.lg-flex.flex-wrap
+  
+    .title.w-full.lg-w-2x12.mb-6
+      prismic-rich-text(:field='doc.title').uppercase.leading-tight.mr-4
     
-    .title(class='w-3/12').pr-10
-      prismic-rich-text(:field='doc.title').uppercase.leading-tight.text-xs
-    
-    .text(class='w-3/12')
+    .text.w-full.lg-w-3x12.mb-6
       prismic-rich-text(:field='doc.text', v-if='doc.text.length')
-      div(v-else) No text yet...
-    
-    .video(class='w-6/12').border-3.border-black
-      .inner
-        player(v-if='doc.vimeo_url', :data='doc', type='controls')
       
+    .spacer.lg-w-1x12.hidden.lg-block
+    
+    .video.w-full.w-full.lg-w-6x12.border-3.border-black(v-if='doc.vimeo_embed.video_id')
+      .inner
+        vime(:embed='doc.vimeo_embed')
 </template>
 
 
 <script>
 export default {
   name: 'work',
-  data () {
-    return {
-    }
-  },
-  
   async asyncData({ $prismic, params, error }) {
     const document = await $prismic.api.getByUID('work', params.uid)
-
     if (document && document.data) {
       const doc = document.data
       return { doc }
@@ -42,6 +37,5 @@ export default {
 .video
   .inner
     // height: calc(100vw / 16*9)
-    padding-bottom: 56.25%
-    width: 100%
+    // padding-bottom: calc(100% / 16*9)
 </style>
