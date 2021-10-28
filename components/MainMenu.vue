@@ -18,7 +18,8 @@
           nuxt-link(to='/contact') Contact
         
       .sub-menus.w-2x3.text-xl
-        .sub-menu.absolute(ref='work', :class='{ "hide-sub": !subShow.includes("work") }')
+        .sub-menu.absolute(ref='work', :class='{ "hide-sub z-40": !subShow.includes("work") }', style='height: calc(100vh - 14.5rem)').overflow-y-auto.overflow-x-hidden
+        
           .sub-inner.mb-6
             .item(v-for='(m,i) in menu.work_artistic', v-if='m.title.length && m.title[0].text', :data-n='i+1')
               nuxt-link(:to='m.link.url') {{ m.title[0].text }}
@@ -26,7 +27,7 @@
             .item(v-for='(m,i) in menu.work_commercial', v-if='m.title.length && m.title[0].text', :data-n='i + 1 + menu.work_artistic.length')
               nuxt-link(:to='m.link.url') {{ m.title[0].text }}
               
-        .sub-menu.absolute(ref='artists', :class='{ "hide-sub": !subShow.includes("artists") }', style='height: calc(100vh - 14.5rem)').overflow-y-auto.pr-12.mr-2
+        .sub-menu.absolute(ref='artists', :class='{ "hide-sub  z-40": !subShow.includes("artists") }', style='height: calc(100vh - 14.5rem)').overflow-y-auto.pr-12.mr-2
           
           .item(v-for='(m,i) in menu.artists', v-if='m.name.length && m.name[0].text', :data-n='i + 1')
             span(@click='toggleArtist(m)', :class='{ underline: (m.name[0].text === artistShow) }').cursor-pointer {{ m.name[0].text }}
@@ -119,11 +120,17 @@ export default {
   // transform: translate3d(0,0,0)
   // transition-delay: 1000ms
   will-change: transform opacity
+  position: relative
+  z-index: 100
 .hide-sub .item
   // transform: rotateY(90deg)
-  transform: translateX(50%)
+  transform: translateX(100%)
   // transform: translateX(1rem)
   opacity: 0
+  z-index: 0
+  * 
+    cursor: default !important
+  
 
 #menu *
   -webkit-backface-visibility: hidden
