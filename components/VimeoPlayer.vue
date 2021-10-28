@@ -78,7 +78,16 @@ export default {
   },
   mounted () {
     this.measure()
-    this.init()
+    
+    this.$nuxt.$on('playerDone', (index) => {
+      if (index === this.index) {
+        if (this.player === null) {
+          console.log('init player index ' + this.index)
+          this.init()
+        }
+      }
+    })
+    
     window.addEventListener('resize', this.resizeIframe)
     // this.$store.state.bus.$on('newWindowWidth', this.onNewWindowWidth)
   },
@@ -110,6 +119,8 @@ export default {
           this.resizeIframe() // resize and reveal
           this.duration = await this.player.getDuration()
           this.autoPlayPauseViewport()
+          this.$nuxt.$emit('playerDone', (this.index+2)) // init next ones
+          this.$nuxt.$emit('playerDone', (this.index+3)) // init next ones
         } catch (e) {
           console.error(e)
         }
@@ -242,7 +253,7 @@ export default {
       this.iframe = this.iframe || this.$el.querySelector('iframe')
       const iframe = this.iframe
       const size = this.bgSize
-      if (!iframe) { return console.warn('No iframe!') }
+      // if (!iframe) { return console.warn('No iframe!') }
       // get aspect ratio
       if (!this.videoW) {
         this.videoW = iframe.getAttribute('width')

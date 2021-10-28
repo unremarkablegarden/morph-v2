@@ -17,7 +17,9 @@ export default {
   watch: {
     artistUID () {
       this.closeIt()
-      this.getArtist(this.artistUID)
+      setTimeout(() => {
+        this.getArtist(this.artistUID)
+      }, 301)
     },
     image () {
       if (this.image) {

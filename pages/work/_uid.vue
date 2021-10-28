@@ -11,8 +11,8 @@
       
     .spacer.lg-w-1x12.hidden.lg-block
     
-    .video.w-full.w-full.lg-w-6x12.border-3.border-black(v-if='doc.vimeo_embed.video_id')
-      .inner
+    .video.w-full.w-full.lg-w-6x12(v-if='doc.vimeo_embed.video_id')
+      .inner.border-3.border-black
         vime(:embed='doc.vimeo_embed')
 </template>
 
@@ -38,4 +38,9 @@ export default {
   .inner
     // height: calc(100vw / 16*9)
     // padding-bottom: calc(100% / 16*9)
+</style>
+
+<style lang='sass'>
+#work p
+  margin-bottom: 1em
 </style>

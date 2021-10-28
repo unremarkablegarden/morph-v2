@@ -10,7 +10,7 @@
       nuxt-link(to='/')
         logo(:invert='true')
     .info.w-1x3.text-right
-      //- strong INFO
+      //- strong  INFO
   
 </template>
 
@@ -32,7 +32,7 @@ export default {
       this.route = to.name
     }
   },
-  mounted () {
+  created () {
     this.route = this.$route.name
   }
 }
