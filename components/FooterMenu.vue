@@ -1,5 +1,7 @@
 <template lang="pug">
-.footer-menu.flex.uppercase.bottom-0.fixed.bg-white.z-100.pt-4.pb-5(style='width: calc(100% - 3.5rem)')
+.footer-menu.flex.uppercase.bottom-0.fixed.z-100.pt-4.pb-5.text-sm 
+  .bg-white
+  //- (style='width: calc(100% - 3.5rem)')
   .item.mr-4
     a(href='https://www.instagram.com/morphfilm/', target='_blank') Instagram
   .item.mr-4

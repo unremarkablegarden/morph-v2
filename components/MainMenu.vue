@@ -8,7 +8,7 @@
     //- xmp {{ artistShow }}
     //- xmp {{ artistID }}
     .flex.flex-wrap.h-full
-      .main-menu.w-1x3.font-bold.text-3xl.uppercase(style='height: calc(100% - 2rem)').pt-35
+      .main-menu.w-1x3.font-bold.text-3xl.uppercase(style='height: calc(100% - 2rem)').pt-34.mt-3px
         .menu-item(:class='{ "open": subShow.includes("work") }')
           span(@click='openSub("work")').cursor-pointer Work
         .menu-item(:class='{ "open": subShow.includes("artists") }')
@@ -125,7 +125,7 @@ export default {
 .menu-item.open
   // transform: translateX(0.4em)
   -webkit-text-stroke: 0.9px black
-  -webkit-text-fill-color: white
+  -webkit-text-fill-color: transparent
 
 .sub-menus
   // height: calc(100vh - 4.5rem)

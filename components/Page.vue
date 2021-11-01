@@ -9,8 +9,10 @@ export default {
   name: 'Page',
   props: ['uid'],
   async fetch () {
-    const page = await this.$prismic.api.getByUID('page', this.uid)
-    this.page = page.data
+    if (this.uid) {
+      const page = await this.$prismic.api.getByUID('page', this.uid)
+      this.page = page.data
+    }
   },
   data () {
     return {

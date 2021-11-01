@@ -33,11 +33,13 @@ export default {
       this.show = false
     },
     async getInfo () {
-      const page = await this.$prismic.api.getByUID('work', this.$route.params.uid)
-      if (page && page.data && page.data.info && page.data.info.length) {
-        this.info = page.data.info
-      } else {
-        this.info = false
+      if (this.$route.params.uid) {
+        const page = await this.$prismic.api.getByUID('work', this.$route.params.uid)
+        if (page && page.data && page.data.info && page.data.info.length) {
+          this.info = page.data.info
+        } else {
+          this.info = false
+        }
       }
     }
   }

@@ -1,7 +1,5 @@
 <template lang="pug">
-.vimeo-player.overflow-hidden(
-  :class="{'opacity-0-off': invisible, 'absolute overlay': bgSize}"
-)
+.vimeo-player.overflow-hidden(:class="{'opacity-0-off': invisible, 'absolute overlay': bgSize}")
   //- frame
   .vimeo-player__frame.overflow-hidden(
     ref="vimeo", 
@@ -80,6 +78,7 @@ export default {
     this.measure()
     
     this.$nuxt.$on('playerDone', (index) => {
+      // console.log('playerDone = ' + index)
       if (index === this.index) {
         if (this.player === null) {
           console.log('init player index ' + this.index)
@@ -119,8 +118,8 @@ export default {
           this.resizeIframe() // resize and reveal
           this.duration = await this.player.getDuration()
           this.autoPlayPauseViewport()
+          this.$nuxt.$emit('playerDone', (this.index+1)) // init next ones
           this.$nuxt.$emit('playerDone', (this.index+2)) // init next ones
-          this.$nuxt.$emit('playerDone', (this.index+3)) // init next ones
         } catch (e) {
           console.error(e)
         }

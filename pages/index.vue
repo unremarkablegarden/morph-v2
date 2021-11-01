@@ -2,9 +2,11 @@
 #index(v-if='doc')
   logo(:hide='hide', :fixed='true')
   newsletter
+  
   .projects
     //- .flex.flex-col-reverse
     .project(v-for='(p, i) in projects', v-if='p.link.url && p.vimeo_embed && p.vimeo_embed.thumbnail_url')
+      //- xmp {{ p }}
       nuxt-link(:to='p.link.url')
         .loader.w-full.absolute.z-1
         
@@ -46,9 +48,9 @@ export default {
   },
   
   mounted () {
-    this.$nuxt.$emit('playerDone', 1) // get it rolling
+    this.$nuxt.$emit('playerDone', 0) // get it rolling
     setTimeout(() => {
-      this.$nuxt.$emit('playerDone', 2) // get it rolling
+      this.$nuxt.$emit('playerDone', 1) // get it rolling
     }, 100)
     
     window.addEventListener("scroll", this.onScroll)
