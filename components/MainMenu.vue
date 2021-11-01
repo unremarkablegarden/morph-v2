@@ -118,9 +118,9 @@ export default {
   transition: all 150ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
   
 .left-menu.hide-menu
-  transform: translateX(-100%)
+  transform: translateX(-110%)
 .right-menu.hide-menu
-  transform: translateX(100%)
+  transform: translateX(110%)
 
 .menu-item.open
   // transform: translateX(0.4em)
