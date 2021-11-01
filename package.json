@@ -10,13 +10,10 @@
     "analysis": "windicss-analysis"
   },
   "dependencies": {
-    "@devmobiliza/videojs-vimeo": "^0.6.0",
-    "@vime/vue": "^5.0.34",
     "@vimeo/player": "^2.16.1",
     "core-js": "^3.15.1",
     "lazysizes": "^5.3.2",
     "nuxt": "^2.15.7",
-    "video.js": "^7.15.4",
     "vue-keen-slider": "^1.4.1",
     "vue-plyr": "^7.0.0"
   },
