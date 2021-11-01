@@ -35,6 +35,9 @@ export default {
 </script>
 
 <style lang="sass">
-#artist p
-  margin-bottom: 1em !important
+#artist 
+  p
+    margin-bottom: 1em !important
+  a
+    text-decoration: underline
 </style>

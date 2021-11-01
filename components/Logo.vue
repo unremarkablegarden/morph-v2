@@ -25,9 +25,13 @@ export default {
 #logo
   opacity: 100
   display: inline-block
+  // transition: transform 200ms ease
+  &:hover
+    transform: scale(1.1)
+    // transition: transform 200ms ease
 #logo, .hide
   will-change: opacity
-  transition: opacity 1000ms
+  transition: opacity 1000ms ease, transform 200ms ease
 .hide
   opacity: 0 !important
 .invert

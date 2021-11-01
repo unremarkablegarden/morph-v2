@@ -3,36 +3,48 @@
   template(:class='{ "hide-menu": !artistID }')
     artist-image(:artistUID='artistID', v-if='artistID')
     
-  .menu(:class='{ "hide-menu": !showLeft }').left-menu.fixed.w-7x12.h-full.top-0.z-20.px-10.pt-38.pb-8
+  .menu(:class='{ "hide-menu": !showLeft }').left-menu.fixed.w-7x12.h-full.top-0.z-20.pl-10
+    //- .pt-35.pb-8
+    //- xmp {{ artistShow }}
+    //- xmp {{ artistID }}
     .flex.flex-wrap.h-full
-      .main-menu.w-1x3.font-bold.text-3xl.uppercase(style='height: calc(100% - 2rem)')
+      .main-menu.w-1x3.font-bold.text-3xl.uppercase(style='height: calc(100% - 2rem)').pt-35
         .menu-item(:class='{ "open": subShow.includes("work") }')
           span(@click='openSub("work")').cursor-pointer Work
         .menu-item(:class='{ "open": subShow.includes("artists") }')
           span(@click='openSub("artists")').cursor-pointer Artists
         .menu-item
           a(href='https://shop.morph.film', target='_blank') Shop
-        .menu-item.cursor-pointer
-          nuxt-link(to='/about') About
-        .menu-item
-          nuxt-link(to='/contact') Contact
+        .menu-item(:class='{ "open": subShow.includes("about") }')
+          span(@click='openSub("about")').cursor-pointer About
+        .menu-item(:class='{ "open": subShow.includes("contact") }')
+          span(@click='openSub("contact")').cursor-pointer Contact
         
-      .sub-menus.w-2x3.text-xl
-        .sub-menu.absolute(ref='work', :class='{ "hide-sub z-40": !subShow.includes("work") }', style='height: calc(100vh - 14.5rem)').overflow-y-auto.overflow-x-hidden
+      .sub-menus.w-2x3.text-xl.overflow-y-auto.overflow-x-hidden.pt-35.pb-20
         
-          .sub-inner.mb-6
-            .item(v-for='(m,i) in menu.work_artistic', v-if='m.title.length && m.title[0].text', :data-n='i+1')
-              nuxt-link(:to='m.link.url') {{ m.title[0].text }}
-          .sub-inner
-            .item(v-for='(m,i) in menu.work_commercial', v-if='m.title.length && m.title[0].text', :data-n='i + 1 + menu.work_artistic.length')
-              nuxt-link(:to='m.link.url') {{ m.title[0].text }}
-              
-        .sub-menu.absolute(ref='artists', :class='{ "hide-sub  z-40": !subShow.includes("artists") }', style='height: calc(100vh - 14.5rem)').overflow-y-auto.pr-12.mr-2
+          .sub-menu(ref='work', :class='{ "hide-sub z-40": !subShow.includes("work") }')
           
-          .item(v-for='(m,i) in menu.artists', v-if='m.name.length && m.name[0].text', :data-n='i + 1')
-            span(@click='toggleArtist(m)', :class='{ underline: (m.name[0].text === artistShow) }').cursor-pointer {{ m.name[0].text }}
-          
-          artist(:artistUID='artistID', v-if='artistID')
+            .sub-inner.mb-6
+              .item(v-for='(m,i) in menu.work_artistic', v-if='m.title.length && m.title[0].text', :data-n='i+1')
+                nuxt-link(:to='m.link.url') {{ m.title[0].text }}
+            .sub-inner
+              .item(v-for='(m,i) in menu.work_commercial', v-if='m.title.length && m.title[0].text', :data-n='i + 1 + menu.work_artistic.length')
+                nuxt-link(:to='m.link.url') {{ m.title[0].text }}
+                
+          .sub-menu(ref='artists', :class='{ "hide-sub  z-40": !subShow.includes("artists") }').pr-20
+            
+            .item(v-for='(m,i) in menu.artists', v-if='m.name.length && m.name[0].text', :data-n='i + 1')
+              span(@click='toggleArtist(m)', :class='{ underline: (m.name[0].text === artistShow) }').cursor-pointer {{ m.name[0].text }}
+            
+            artist(:artistUID='artistID', v-if='artistID')
+            
+          .sub-menu(ref='about', :class='{ "hide-sub  z-40": !subShow.includes("about") }').pr-20
+            .item
+              page(uid='about')
+            
+          .sub-menu(ref='contact', :class='{ "hide-sub  z-40": !subShow.includes("contact") }').pr-20
+            .item
+              page(uid='contact')
       
       footer-menu
 </template>
@@ -84,10 +96,10 @@ export default {
       }
       else {
         this.artistShow = sel.name[0].text
-        this.artistID = false
-        setTimeout(() => {
+        // this.artistID = false
+        // setTimeout(() => {
           this.artistID = sel.link.id
-        }, 10)
+        // }, 10)
       }
     }
   },
@@ -96,7 +108,7 @@ export default {
 
 <style lang="sass">
 .menu
-  backdrop-filter: blur(5px)
+  backdrop-filter: blur(6px)
   background: #FFFFFFCC
   box-shadow: 0 0 25px 0px #00000022
 
@@ -111,8 +123,14 @@ export default {
   transform: translateX(100%)
 
 .menu-item.open
-  transform: translateX(0.4em)
-  
+  // transform: translateX(0.4em)
+  -webkit-text-stroke: 0.9px black
+  -webkit-text-fill-color: white
+
+.sub-menus
+  // height: calc(100vh - 4.5rem)
+  height: 100vh
+    
 .sub-menu .item, .hide-sub .item
   transition: all 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95)
   // transform-origin: left
@@ -122,14 +140,18 @@ export default {
   will-change: transform opacity
   position: relative
   z-index: 100
-.hide-sub .item
-  // transform: rotateY(90deg)
-  transform: translateX(100%)
-  // transform: translateX(1rem)
-  opacity: 0
-  z-index: 0
-  * 
-    cursor: default !important
+.hide-sub 
+  // display: none
+  height: 0
+  overflow-y: hidden
+  .item
+    // transform: rotateY(90deg)
+    transform: translateX(100%)
+    // transform: translateX(1rem)
+    opacity: 0
+    z-index: 0
+    * 
+      cursor: default !important
   
 
 #menu *

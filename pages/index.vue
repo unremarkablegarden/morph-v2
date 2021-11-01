@@ -1,7 +1,7 @@
 <template lang="pug">
 #index(v-if='doc')
   logo(:hide='hide', :fixed='true')
-
+  newsletter
   .projects
     //- .flex.flex-col-reverse
     .project(v-for='(p, i) in projects', v-if='p.link.url && p.vimeo_embed && p.vimeo_embed.thumbnail_url')

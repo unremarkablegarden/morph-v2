@@ -1,6 +1,6 @@
 <template lang="pug">
 .menu(:class='{ "hide-menu": !show }').right-menu.fixed.w-5x12.h-full.top-0.right-0.z-20
-  #artist-image(:style='"background-image: url("+ image +");"', v-if='image').w-full.h-full
+  #artist-image.bg-black(:style='"background-image: url("+ image +");"', v-if='image').w-full.h-full
 </template>
 
 <script>
@@ -16,10 +16,10 @@ export default {
   },
   watch: {
     artistUID () {
-      this.closeIt()
-      setTimeout(() => {
+      // this.closeIt()
+      // setTimeout(() => {
         this.getArtist(this.artistUID)
-      }, 301)
+      // }, 301)
     },
     image () {
       if (this.image) {

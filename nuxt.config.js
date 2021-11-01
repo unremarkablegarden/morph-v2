@@ -21,14 +21,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/sass/global.sass'
+    '@/assets/sass/global.sass',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/lazysizes.js' },
     { src: '~/plugins/thumb.js' },
-    // { src: '@/plugins/vue-plyr.js', mode: 'client' },
+    { src: '@/plugins/vue-plyr.js', mode: 'client' },
     { src: '@/plugins/vue-keen-slider.js', mode: 'client' }
   ],
 
@@ -85,6 +85,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // transpile: ["@vime/vue", "@vime/core"]
   },
   
   server: {

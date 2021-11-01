@@ -1,12 +1,12 @@
 <template lang='pug'>
 #about.page(v-if='doc')
-  .container.mx-auto.my-10.flex
+  .container.mx-auto.my-10.flex.mt-35
     .w-3x12.hidden.lg-block
     .w-full.lg-w-6x12
       .title(v-if='doc.title.text')
         prismic-rich-text(:field='doc.title').uppercase.leading-tight.text-xs
       
-      .text.text-xl.lg-text-2xl
+      .text.text-xl
         prismic-rich-text(:field='doc.text', v-if='doc.text.length')
     
 </template>

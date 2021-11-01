@@ -3,14 +3,14 @@
 
   main-menu
   
-  header.mx-10.my-5.z-30.text-center.flex.justify-between.items-center.relative
-    .ham-menu.w-1x3
+  header.z-30.text-center.flex.justify-between.items-center.fixed.top-6.w-full
+    .ham-menu.w-1x3.mx-10
       hamburger(:invert='isIndex')
-    .logo.w-1x3(:class='{ "opacity-0": isIndex }')
+    .logo.w-1x3(:class='{ "opacity-0": isIndex }').mx-10
       nuxt-link(to='/')
         logo(:invert='true')
-    .info.w-1x3.text-right
-      //- strong  INFO
+    .info.w-1x3.text-right.text-3xl.mx-10
+      info
   
 </template>
 

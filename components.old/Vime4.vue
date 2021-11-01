@@ -27,11 +27,12 @@
           //- VimeControlSpacer
           VimeScrubberControl
           VimeTimeProgress 
+          VimeFullscreenControl(hideTooltip)
     
 </template>
 
 <script>
-import { VimePlayer, VimeVimeo, VimeUi, VimeClickToPlay, VimeControls, VimeScrubberControl, VimeTimeProgress, VimeControlGroup, VimePlaybackControl, VimeIcons, VimeControlSpacer } from '@vime/vue'
+import { VimePlayer, VimeVimeo, VimeUi, VimeClickToPlay, VimeControls, VimeScrubberControl, VimeTimeProgress, VimeControlGroup, VimePlaybackControl, VimeIcons, VimeControlSpacer, VimeFullscreenControl } from '@vime/vue'
 
 export default {
   name: 'Vime',
@@ -41,7 +42,7 @@ export default {
       ready: false  
     }
   },
-  components: { VimePlayer, VimeVimeo, VimeUi, VimeClickToPlay, VimeControls, VimeScrubberControl, VimeTimeProgress, VimeControlGroup, VimePlaybackControl, VimeIcons, VimeControlSpacer },
+  components: { VimePlayer, VimeVimeo, VimeUi, VimeClickToPlay, VimeControls, VimeScrubberControl, VimeTimeProgress, VimeControlGroup, VimePlaybackControl, VimeIcons, VimeControlSpacer, VimeFullscreenControl },
   computed: {
     aspect () {
       return this.embed.width / this.embed.height
@@ -74,7 +75,7 @@ vime-control-group {
 }
 vime-time-progress {
   margin-left: 18px;
-  margin-right: 7px;
+  margin-right: 0px;
 }
 vime-control {
   --vm-control-focus-bg: transparent;
