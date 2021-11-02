@@ -1,5 +1,5 @@
 <template lang="pug">
-#player
+#player(v-if='loaded')
   vue-plyr(
     ref='plyr' 
     id='player'
@@ -29,6 +29,7 @@ export default {
   },
   data () {
     return {
+      loaded: false,
       options: {
         // https://github.com/sampotts/plyr#options
         controls: [
@@ -56,7 +57,12 @@ export default {
       }
     }
   },
-  
+  mounted () {
+    this.$nextTick(() => {
+      this.loaded = true
+      console.log('load plyr')
+    })
+  }
 }
 </script>
 
