@@ -82,7 +82,8 @@ export default {
   .loader
     height: calc(100vw / 16*9)
     background: white
-    background-image: url(/loader.gif)
+    // background-image: url(/loader.gif)
+    background-image: url(https://images.prismic.io/morph/4b6110f9-8acc-4028-9802-8ca2460cf5e4_loader.gif?auto=compress)
     background-size: 20px auto
     background-position: 50% 43%
     background-repeat: no-repeat

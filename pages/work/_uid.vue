@@ -15,11 +15,11 @@
       transition(name='tabs', :mode="mode")
         .tabb.video(v-if='doc.vimeo_embed.video_id && tab === 1')
           .inner.border-3.border-black
-            plyr(:embed='doc.vimeo_embed')
+            plyr(:vimeoID='doc.vimeo_embed.video_id')
       transition(name='tabs', :mode="mode")
-        .tabb.video2(v-if='doc.vimeo_embed.video_id2 && tab === 2')
+        .tabb.video2(v-if='doc.vimeo_embed2.video_id && tab === 2')
           .inner
-            plyr(:embed='doc.vimeo_embed2')
+            plyr(:vimeoID='doc.vimeo_embed2.video_id')
       transition(name='tabs', :mode="mode")
         .tabb.gallery(v-if='doc.gallery && doc.gallery.length > 1 && tab === 3')
           .inner
@@ -31,10 +31,23 @@
 <script>
 export default {
   name: 'work',
+  head () {
+    return {
+      title: "Morph — " + this.doc.title[0].text,
+      // meta: [
+      //   {
+      //     hid: 'description',
+      //     name: 'description',
+      //     content: 'My custom description'
+      //   }
+      // ]
+    }
+  },
   data () {
     return {
       tab: 1,
-      mode: 'out-in'
+      mode: 'out-in',
+      
     }
   },
   mounted () {

@@ -1,6 +1,5 @@
 <template lang="pug">
 #player
-  
   vue-plyr(
     ref='plyr' 
     id='player'
@@ -8,7 +7,7 @@
   )
     div(
       data-plyr-provider="vimeo" 
-      :data-plyr-embed-id='embed.video_id'
+      :data-plyr-embed-id='vimeoID'
     )
     //- :controls='false'
     //- :playsinline='true'
@@ -17,14 +16,15 @@
 
 <script>
 export default {
-  name: 'player',
+  name: 'plyr',
   head () {
     return { link: [{ rel: 'stylesheet', href: 'https://unpkg.com/vue-plyr/dist/vue-plyr.css' }] }
   },
+  // props: ['vimeoID'],
   props: {
-    embed: {
-      type: Object,
-      default: {}
+    vimeoID: {
+      type: Number,
+      default: 0
     }
   },
   data () {

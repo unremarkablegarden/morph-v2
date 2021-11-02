@@ -1,7 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  dev: true,
+  // dev: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -91,5 +91,9 @@ export default {
   
   server: {
     host: '0' // default: localhost
-  }
+  },
+  
+  // generate: {
+  //   devtools: true
+  // }
 }
