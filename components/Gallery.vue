@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .zoomer
   z-index: 200
   backdrop-filter: blur(6px)
