@@ -45,11 +45,18 @@
           .sub-menu(ref='contact', :class='{ "hide-sub  z-40": !subShow.includes("contact") }').pr-20
             .item
               page(uid='contact')
+              //- .credit.text-base
+                strong Web development
+                div
+                  span Olle Holmberg / 
+                  a(href='https://unremarkablegarden.com', target='_blank') site
+                  span &nbsp;/ 
+                  a(href='mailto:olle@unremarkablegarden.com') mail
               transition(name='fade')
                 div(v-if='subShow.includes("contact")')
                   newsletter2
       
-      footer-menu
+      footer-menu(:showCredit='subShow.includes("contact")')
 </template>
 
 <script>
@@ -156,6 +163,10 @@ export default {
     * 
       cursor: default !important
 
+.credit
+  a
+    text-decoration: underline
+  
 #menu *
   -webkit-backface-visibility: hidden
 </style>

@@ -3,7 +3,6 @@
   .my-0.mx-auto.lg-flex
   
     .title.w-full.lg-w-auto.pb-6.pr-8.text-base.pt-34.mt-1px
-      //- prismic-rich-text(:field='doc.title').uppercase.leading-tight.mr-4
       h1.uppercase.leading-tight.mr-4.text-3xl.font-bold(v-if='doc.title && doc.title.length')
         | {{ doc.title[0].text }}
       
