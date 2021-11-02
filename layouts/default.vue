@@ -9,8 +9,9 @@
 export default {
   mounted () {
     this.setVh()
+    let t = this
     this.$nuxt.$on('setVh', function(){
-      this.setVh()
+      t.setVh()
     })
     window.addEventListener('touchmove', this.setVh)
   },
