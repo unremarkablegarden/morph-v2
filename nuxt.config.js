@@ -12,6 +12,17 @@ export default {
       devtools: true
     }
   },
+  
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+    extend(config, { isClient }) {
+      // Extend only webpack config for client-bundle
+      if (isClient) {
+        config.devtool = 'source-map'
+      }
+    }
+    // transpile: ["@vime/vue", "@vime/core"]
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -93,11 +104,6 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    // transpile: ["@vime/vue", "@vime/core"]
-  },
   
   server: {
     host: '0' // default: localhost
