@@ -1,5 +1,5 @@
 <template lang='pug'>
-#page(v-if='page').text-justify.text-base.max-w-96.hyphens-auto
+#page(v-if='page').text-justify.text-sm.lg-text-base.lg-max-w-96.hyphens-auto
   //- prismic-rich-text(:field='page.title', v-if='page.title && page.title.length')
   prismic-rich-text(:field='page.text')
 </template>

@@ -1,5 +1,5 @@
 <template lang="pug">
-#artist.text-justify.text-base.mt-16.max-w-96.hyphens-auto
+#artist.text-justify.text-sm.lg-text-base.mt-8.lg-mt-16.lg-max-w-96.hyphens-auto
   transition(name='artist')
     prismic-rich-text(:field='artist.text', v-if='artist && artist.text')
     div(v-else-if='!artist && !text && !loading')

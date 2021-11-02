@@ -3,14 +3,18 @@
 
   main-menu
   
-  header.z-30.text-center.flex.justify-between.items-center.fixed.top-6.w-full
-    .ham-menu.w-1x3.mx-10
+  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.lg-top-6.w-full
+  
+    .ham-menu.w-1x3.mx-2.lg-mx-10
       hamburger(:invert='isIndex')
-    .logo.w-1x3(:class='{ "opacity-0": isIndex }').mx-10
+  
+    .logo.w-1x3.mx-2.lg-mx-10.mt-2.lg-mt-0(:class='{ "opacity-0": isIndex }')
       nuxt-link(to='/')
         logo(:invert='true')
-    .info.w-1x3.text-right.text-3xl.mx-10
-      info
+  
+    .info.w-1x3.text-right.text-2xl.lg-text-3xl.mx-2.lg-mx-10
+      .mr-1.lg-mr-0
+        info
   
 </template>
 
@@ -24,7 +28,7 @@ export default {
   },
   computed: {
     isIndex () {
-      if (this.route === 'index') return true
+      if (this.route.includes('index')) return true
     }
   },
   watch: {

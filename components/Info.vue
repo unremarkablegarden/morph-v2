@@ -1,6 +1,6 @@
 <template lang="pug">
 #info(:class='{ show: show }', v-if='info')
-  button(@click='show = !show').text-3xl.uppercase.relative.z-40 Info
+  button(@click='show = !show').uppercase.relative.z-40 Info
   .menu(:class='{ "hide-menu": !show }').right-menu.fixed.w-5x12.h-full.top-0.right-0.z-20.overflow-y-auto
     .text-base.text-left.px-10.pt-35.pb-8.text-justify
       prismic-rich-text(:field='info')

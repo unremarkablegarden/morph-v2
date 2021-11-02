@@ -1,5 +1,5 @@
 <template lang="pug">
-#content-menu.mt-8.inline-block.min-w-36.leading-none.text-sm.mr-4(v-if='enabled')
+#content-menu.lg-mt-8.mt-4.inline-block.lg-min-w-36.leading-none.text-xs.lg-text-sm.mr-4(v-if='enabled')
   .item(v-if='menu1', :class='{ selected: tab == 1 }', @click='tab = 1')
     .title
       span(v-if='data.video_title_1') {{ data.video_title_1 }}

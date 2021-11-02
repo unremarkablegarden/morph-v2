@@ -3,24 +3,22 @@
   template(:class='{ "hide-menu": !artistID }')
     artist-image(:artistUID='artistID', v-if='artistID')
     
-  .menu(:class='{ "hide-menu": !showLeft }').left-menu.fixed.w-7x12.h-full.top-0.z-20.pl-10
-    //- .pt-35.pb-8
-    //- xmp {{ artistShow }}
-    //- xmp {{ artistID }}
-    .flex.flex-wrap.h-full
-      .main-menu.w-1x3.font-bold.text-3xl.uppercase(style='height: calc(100% - 2rem)').pt-34.mt-3px
+  .menu(:class='{ "hide-menu": !showLeft }').left-menu.fixed.w-full.lg-w-7x12.h-full.top-0.z-20.lg.pl-10.pl-4.overflow-y-auto.lg-overflow-x-hidden
+    .lg-flex.flex-wrap.lg-h-full
+      .main-menu.w-1x3.font-bold.text-2xl.lg-text-3xl.uppercase(style='height: calc(100% - 2rem)').pt-14.lg-pt-34.mt-3px
         .menu-item(:class='{ "open": subShow.includes("work") }')
           span(@click='openSub("work")').cursor-pointer Work
         .menu-item(:class='{ "open": subShow.includes("artists") }')
           span(@click='openSub("artists")').cursor-pointer Artists
         .menu-item
-          a(href='https://shop.morph.film', target='_blank') Shop
+          //- a(href='https://shop.morph.film', target='_blank') Shop
+          .opacity-20 Shop
         .menu-item(:class='{ "open": subShow.includes("about") }')
           span(@click='openSub("about")').cursor-pointer About
         .menu-item(:class='{ "open": subShow.includes("contact") }')
           span(@click='openSub("contact")').cursor-pointer Contact
         
-      .sub-menus.w-2x3.text-xl.overflow-y-auto.overflow-x-hidden.pt-35.pb-20
+      .sub-menus.w-full.lg-w-2x3.lg-text-xl.lg-overflow-y-auto.overflow-y-hidden.overflow-x-hidden.lg-pt-35.lg-pb-20.pt-6.pl-1.lg-pl-0.pr-5.lg-pr-0
         
           .sub-menu(ref='work', :class='{ "hide-sub z-40": !subShow.includes("work") }')
           
@@ -31,27 +29,21 @@
               .item(v-for='(m,i) in menu.work_commercial', v-if='m.title.length && m.title[0].text', :data-n='i + 1 + menu.work_artistic.length')
                 nuxt-link(:to='m.link.url') {{ m.title[0].text }}
                 
-          .sub-menu(ref='artists', :class='{ "hide-sub  z-40": !subShow.includes("artists") }').pr-20
+          .sub-menu(ref='artists', :class='{ "hide-sub  z-40": !subShow.includes("artists") }').lg-pr-20
             
             .item(v-for='(m,i) in menu.artists', v-if='m.name.length && m.name[0].text', :data-n='i + 1')
               span(@click='toggleArtist(m)', :class='{ underline: (m.name[0].text === artistShow) }').cursor-pointer {{ m.name[0].text }}
             .item
               artist(:artistUID='artistID')
             
-          .sub-menu(ref='about', :class='{ "hide-sub  z-40": !subShow.includes("about") }').pr-20
+          .sub-menu(ref='about', :class='{ "hide-sub  z-40": !subShow.includes("about") }').lg-pr-20
             .item
               page(uid='about')
             
-          .sub-menu(ref='contact', :class='{ "hide-sub  z-40": !subShow.includes("contact") }').pr-20
+          .sub-menu(ref='contact', :class='{ "hide-sub  z-40": !subShow.includes("contact") }').lg-pr-20
             .item
               page(uid='contact')
-              //- .credit.text-base
-                strong Web development
-                div
-                  span Olle Holmberg / 
-                  a(href='https://unremarkablegarden.com', target='_blank') site
-                  span &nbsp;/ 
-                  a(href='mailto:olle@unremarkablegarden.com') mail
+              
               transition(name='fade')
                 div(v-if='subShow.includes("contact")')
                   newsletter2
@@ -117,6 +109,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import '@/assets/sass/responsive.sass'
+
 .menu
   backdrop-filter: blur(6px)
   background: #FFFFFFCC
@@ -132,26 +126,24 @@ export default {
 .right-menu.hide-menu
   transform: translateX(110%)
 
+.right-menu
+  +sm
+    display: none !important
 // .right-menu
 //   border-left: 3px black solid
 // .left-menu
 //   border-right: 3px black solid
   
 .menu-item.open
-  // transform: translateX(0.4em)
   -webkit-text-stroke: 0.9px black
   -webkit-text-fill-color: transparent
 
 .sub-menus
-  // height: calc(100vh - 4.5rem)
-  height: 100vh
+  +lg
+    height: 100vh
     
 .sub-menu .item, .hide-sub .item
   transition: all 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95)
-  // transform-origin: left
-  // -webkit-transform-style: preserve-3d
-  // transform: translate3d(0,0,0)
-  // transition-delay: 1000ms
   will-change: transform opacity
   position: relative
   z-index: 100

@@ -31,8 +31,6 @@ export default {
   },
   computed: {
     projects () {
-      // let p = [...this.doc.project]
-      // return p.reverse()
       return this.doc.project
     },
     hide () {
@@ -70,6 +68,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import '@/assets/sass/responsive.sass'
+
 .project
   height: calc(100vw / 16*9) // video size
   background-color: black
@@ -77,6 +77,7 @@ export default {
     height: calc(100vw / 16*9)
     background-size: cover
     background-position: center center
+    backface-visibility: hidden
   .loader
     height: calc(100vw / 16*9)
     background: white
@@ -84,6 +85,9 @@ export default {
     background-image: url(https://images.prismic.io/morph/4b6110f9-8acc-4028-9802-8ca2460cf5e4_loader.gif?auto=compress)
     background-size: 20px auto
     background-position: 50% 43%
+    +sm
+      background-size: 14px auto
+      background-position: 50% 37%
     background-repeat: no-repeat
     filter: invert(100)
     // opacity: 0.5
@@ -91,6 +95,8 @@ export default {
   .title
     height: calc(100vw / 16*9) // video size
     font-size: 2.2vw
+    +sm
+      font-size: 1.2rem
     background-size: cover
     background-position: center center
 </style>

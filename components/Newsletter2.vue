@@ -1,16 +1,12 @@
 <template lang='pug'>
-#newsletter2.text-sm
-  //- .close
-    img(src='https://morph.film/app/uploads/2020/06/close.png')
-  .mailchimp.mt-20
+#newsletter2.text-xs.lg-text-sm.lg-max-w-72.max-w-50
+  .mailchimp.mt-13.lg-mt-20
     #mc_embed_signup
       form#mc-embedded-subscribe-form.validate(action='https://film.us18.list-manage.com/subscribe/post?u=d8c8dfaa72758f5aac0f13c8e&id=f2f3fbdc57', method='post', name='mc-embedded-subscribe-form', novalidate, target='_blank')
         #mc_embed_signup_scroll
           div
             input#mce-EMAIL.required.email(name='EMAIL', type='email', placeholder='Enter your e-mail')
             input#mc-embedded-subscribe.button(name='subscribe', type='submit', value='Subscribe to our newsletter 💋').cursor-pointer
-            
-            //- input#mc-embedded-close.button(name='close', type='button', value='Close', @click='hideIt').bg-white.cursor-pointer
             
           #mce-responses.clear
             #mce-error-response.response(style='display: none;')
@@ -38,7 +34,6 @@ export default {
 #newsletter2
   padding: 0
   margin: 0
-  max-width: 300px
   color: black
   *
     font-family: 'f', sans-serif !important

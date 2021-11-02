@@ -7,9 +7,10 @@
         //- img(:src='g.image.thumb.url', @click='zoom(g.image.url, i)', :data-n='i')
   
   transition(name='fade')
-    .zoomer(v-if='zoomed').fixed.top-0.left-0.flex.justify-around.align-middle.w-full.h-full
+    .zoomer(v-if='zoomed').fixed.top-0.left-0.flex.justify-around.align-middle
       .close.fixed.top-4.right-4.text-3xl.cursor-pointer(@click='zoomed = false') ✕
-      img(:src='zoomed').h-full.w-auto
+      //- img(:src='zoomed')
+      .zoom-img(:style='"background-image: url("+zoomed+")"')
       
     
     //- {
@@ -57,7 +58,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import '@/assets/sass/responsive.sass'
+
 .zoomer
+  width: 100vw
+  height: 100vh
   z-index: 200
   backdrop-filter: blur(6px)
   background: #FFFFFFCC
@@ -69,12 +74,25 @@ export default {
   // filter: invert(100)
   .close
     z-index: 300
-  img
-    box-shadow: 0 0 25px 0px #00000022
+  .zoom-img
+    +lg
+      box-shadow: 0 0 25px 0px #00000022
+    // max-width: 90vw
+    // max-height: 90vh
+    // width: 100%
+    // height: auto
+    transform: scale(0.9)
+    width: 100vw
+    height: 100vh
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
 .thumbs
   line-height: 0
 .thumb
-  width: calc(100% * 1/6)
+  width: calc(100% * 1/3)
+  +lg
+    width: calc(100% * 1/6)
 .img
   background-color: #fafafa
   background-size: cover

@@ -33,8 +33,19 @@ export default {
 }
 </script>
 
+<style lang="sass" scoped>
+@import '@/assets/sass/responsive.sass'
+
++sm
+  .hamburger
+    transform: scale(0.66)
+</style>
+
 <style lang="scss" scoped>
+/* $md: 768px; */
+
 $height: 30px;
+/* $heightMobile: 20px; */
 $color: black;
 .invert {
   transition: 300ms filter ease;
@@ -66,7 +77,6 @@ opacity 300ms linear;
     
     &--middle {
       .hamburger--is-open & {
-        /* opacity: 0; */
         transform: rotateY(90deg);
         transform-origin: center center;
       }
@@ -79,5 +89,4 @@ opacity 300ms linear;
     }
   }
 }
-
 </style>

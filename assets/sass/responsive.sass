@@ -1,0 +1,75 @@
+// --------------------------------
+// WINDI CSS
+// sm	@media (min-width: 640px)
+// md	@media (min-width: 768px)
+// lg	@media (min-width: 1024px)
+// xl	@media (min-width: 1280px)
+// 2xl	@media (min-width: 1536px)
+
+$sm: 640px !default
+$md: 768px !default
+$lg: 1024px !default
+$xl: 1280px !default
+$xl2: 1536px !default
+
+=sm
+  @media screen and (max-width: $sm - 1px)
+    @content
+=md
+  @media screen and (min-width: $md)
+    @content
+=lg
+  @media screen and (min-width: $lg)
+    @content
+=xl
+  @media screen and (min-width: $xl)
+    @content
+=xl2
+  @media screen and (min-width: $xl2)
+    @content
+
+  
+=from($device)
+  @media screen and (min-width: $device)
+    @content
+
+=until($device)
+  @media screen and (max-width: $device - 1px)
+    @content
+
+  
+// =mobile
+//   @media screen and (max-width: $tablet - 1px)
+//     @content
+
+// =tablet
+//   @media screen and (min-width: $tablet), print
+//     @content
+
+// =tablet-only
+//   @media screen and (min-width: $tablet) and (max-width: $desktop - 1px)
+//     @content
+
+// =touch
+//   @media screen and (max-width: $desktop - 1px)
+//     @content
+
+// =desktop
+//   @media screen and (min-width: $desktop)
+//     @content
+
+// =desktop-only
+//   @media screen and (min-width: $desktop) and (max-width: $widescreen - 1px)
+//     @content
+
+// =widescreen
+//   @media screen and (min-width: $widescreen)
+//     @content
+
+// =widescreen-only
+//   @media screen and (min-width: $widescreen) and (max-width: $fullhd - 1px)
+//     @content
+
+// =fullhd
+//   @media screen and (min-width: $fullhd)
+//     @content
