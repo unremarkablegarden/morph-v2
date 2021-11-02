@@ -31,18 +31,18 @@
 <script>
 export default {
   name: 'work',
-  head () {
-    return {
-      title: "Morph — " + this.title,
-      // meta: [
-      //   {
-      //     hid: 'description',
-      //     name: 'description',
-      //     content: 'My custom description'
-      //   }
-      // ]
-    }
-  },
+  // head () {
+  //   return {
+  //     title: "Morph — " + this.title,
+  //     // meta: [
+  //     //   {
+  //     //     hid: 'description',
+  //     //     name: 'description',
+  //     //     content: 'My custom description'
+  //     //   }
+  //     // ]
+  //   }
+  // },
   data () {
     return {
       tab: 1,
@@ -50,11 +50,11 @@ export default {
     }
   },
   computed: {
-    title () {
-      if (this.doc && this.doc.title && this.doc.title.length) {
-        return this.doc.title[0].text
-      }
-    }
+    // title () {
+    //   if (this.doc && this.doc.title && this.doc.title.length) {
+    //     return this.doc.title[0].text
+    //   }
+    // }
   },
   mounted () {
     this.$nuxt.$on('tab-change', (tab) => {
