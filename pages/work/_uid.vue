@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     title () {
-      if (this.doc && this.doc.title.length) {
+      if (this.doc && this.doc.title && this.doc.title.length) {
         return this.doc.title[0].text
       }
     }
