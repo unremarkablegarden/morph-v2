@@ -43,7 +43,7 @@ export default {
         volume: 1,
         hideControls: true,
         tooltips: { controls: false, seek: true },
-        fullscreen: { enabled: true, fallback: true, iosNative: false, container: null },
+        fullscreen: { enabled: true, fallback: true, iosNative: true, container: null },
         quality: 1080,
         vimeo: { 
           byline: false, 

@@ -41,6 +41,8 @@ export default {
         } else {
           this.info = false
         }
+      } else {
+        this.info = false
       }
     }
   }

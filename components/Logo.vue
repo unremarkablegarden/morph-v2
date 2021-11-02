@@ -22,13 +22,15 @@ export default {
 <style lang="sass" scoped>
 .set-fixed
   transform: translateX(-50%)
+#logo.relative
+  &:hover
+    transform: scale(1.1)
+    // transition: transform 200ms ease
 #logo
   opacity: 100
   display: inline-block
   // transition: transform 200ms ease
-  &:hover
-    transform: scale(1.1)
-    // transition: transform 200ms ease
+  
 #logo, .hide
   will-change: opacity
   transition: opacity 1000ms ease, transform 200ms ease

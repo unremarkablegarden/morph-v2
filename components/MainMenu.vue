@@ -35,8 +35,8 @@
             
             .item(v-for='(m,i) in menu.artists', v-if='m.name.length && m.name[0].text', :data-n='i + 1')
               span(@click='toggleArtist(m)', :class='{ underline: (m.name[0].text === artistShow) }').cursor-pointer {{ m.name[0].text }}
-            
-            artist(:artistUID='artistID', v-if='artistID')
+            .item
+              artist(:artistUID='artistID')
             
           .sub-menu(ref='about', :class='{ "hide-sub  z-40": !subShow.includes("about") }').pr-20
             .item
@@ -45,6 +45,9 @@
           .sub-menu(ref='contact', :class='{ "hide-sub  z-40": !subShow.includes("contact") }').pr-20
             .item
               page(uid='contact')
+              transition(name='fade')
+                div(v-if='subShow.includes("contact")')
+                  newsletter2
       
       footer-menu
 </template>
@@ -152,7 +155,6 @@ export default {
     z-index: 0
     * 
       cursor: default !important
-  
 
 #menu *
   -webkit-backface-visibility: hidden
@@ -164,5 +166,15 @@ export default {
   .item[data-n="#{$i}"] {
     transition-delay: calc($i * 40ms);
   }
+}
+.fade-enter-active, .fade-leave-active { 
+  /* transition-delay: 1s; */
+  transition: all 600ms; 
+  transform: translateY(0vh);
+}
+.fade-enter, .fade-leave-active { 
+  opacity: 0; 
+  transform: translateY(100vh);
+  transition-delay: 1s;
 }
 </style>
