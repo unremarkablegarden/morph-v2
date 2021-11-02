@@ -2,15 +2,16 @@
 #newsletter(:class='{ show: show }')
   //- .close
     img(src='https://morph.film/app/uploads/2020/06/close.png')
-  .mailchimp
+  .mailchimp.text-sm
     #mc_embed_signup
       form#mc-embedded-subscribe-form.validate(action='https://film.us18.list-manage.com/subscribe/post?u=d8c8dfaa72758f5aac0f13c8e&id=f2f3fbdc57', method='post', name='mc-embedded-subscribe-form', novalidate, target='_blank')
         #mc_embed_signup_scroll
           div
-            input#mce-EMAIL.required.email(name='EMAIL', type='email', placeholder='E-mail')
-            input#mc-embedded-subscribe.button(name='subscribe', type='submit', value='Subscribe to newsletter').cursor-pointer
+            input#mce-EMAIL.required.email(name='EMAIL', type='email', placeholder='Enter your e-mail')
             
-            input#mc-embedded-close.button(name='close', type='button', value='Close', @click='hideIt').bg-white.cursor-pointer
+            input#mc-embedded-subscribe.button(name='subscribe', type='submit', value='Subscribe to our newsletter 💋').cursor-pointer
+            
+            input#mc-embedded-close.button(name='close', type='button', value='No, thanks', @click='hideIt').bg-white.cursor-pointer
             
           #mce-responses.clear
             #mce-error-response.response(style='display: none;')
@@ -49,20 +50,21 @@ export default {
 <style lang='sass'>
 #newsletter
   &.show
-    top: 50vh !important
+    bottom: 2vh !important
+    right: 2vh !important
     transition: all 700ms ease
   box-shadow: 0 0 30px 0 #FFFFFF40
-  background: white
-  border: 3px black solid
+  // background: white
+  // border: 3px black solid
   display: inline-block
-  padding: 2em 1em 1.1em
+  // padding: 2em 1em 1.1em
   position: fixed
   z-index: 50
-  top: 150vh
-  left: 50vw
+  bottom: -1vh
+  right: -300px
   // +touch
     // top: 127vh
-  transform: translate(-50%, -50%)
+  // transform: translate(-50%, -50%)
   color: black
   transition: all 700ms ease
   // .close
@@ -92,7 +94,7 @@ export default {
       // +touch
         // min-width: 250px
       text-align: center
-      margin: 0 1em 1em
+      // margin: 0 0.5rem 0.5rem
   #mc-embedded-subscribe
     color: white
     background: black
