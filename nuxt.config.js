@@ -1,26 +1,26 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  dev: true,
+  // dev: true,
   
-  generate: {
-    devtools: true
-  },
+  // generate: {
+  //   devtools: true
+  // },
   
-  vue: {
-    config: {
-      devtools: true
-    }
-  },
+  // vue: {
+  //   config: {
+  //     devtools: true
+  //   }
+  // },
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, { isClient }) {
-      // Extend only webpack config for client-bundle
-      if (isClient) {
-        config.devtool = 'source-map'
-      }
-    }
+    // extend(config, { isClient }) {
+    //   // Extend only webpack config for client-bundle
+    //   if (isClient) {
+    //     config.devtool = 'source-map'
+    //   }
+    // }
     // transpile: ["@vime/vue", "@vime/core"]
   },
 
