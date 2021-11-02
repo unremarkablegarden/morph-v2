@@ -3,7 +3,7 @@
 
   main-menu
   
-  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.lg-top-6.w-full
+  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.lg-top-6.w-full.bg-white.lg-bg-transparent
   
     .ham-menu.w-1x3.mx-2.lg-mx-10
       hamburger(:invert='isIndex')
