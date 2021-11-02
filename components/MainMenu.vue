@@ -132,6 +132,11 @@ export default {
 .right-menu.hide-menu
   transform: translateX(110%)
 
+// .right-menu
+//   border-left: 3px black solid
+// .left-menu
+//   border-right: 3px black solid
+  
 .menu-item.open
   // transform: translateX(0.4em)
   -webkit-text-stroke: 0.9px black
