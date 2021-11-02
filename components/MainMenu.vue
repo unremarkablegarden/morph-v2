@@ -126,9 +126,6 @@ export default {
 .right-menu.hide-menu
   transform: translateX(110%)
 
-.right-menu
-  +sm
-    display: none !important
 // .right-menu
 //   border-left: 3px black solid
 // .left-menu
@@ -175,14 +172,16 @@ export default {
     transition-delay: calc($i * 40ms);
   }
 }
-.fade-enter-active, .fade-leave-active { 
-  /* transition-delay: 1s; */
-  transition: all 600ms; 
-  transform: translateY(0vh);
-}
-.fade-enter, .fade-leave-active { 
-  opacity: 0; 
-  transform: translateY(100vh);
-  transition-delay: 1s;
+@media only screen and (min-width: 1024px) {
+  .fade-enter-active, .fade-leave-active { 
+    /* transition-delay: 1s; */
+    transition: transform 600ms, opacity 600ms; 
+    transform: translateY(0vh);
+  }
+  .fade-enter, .fade-leave-active { 
+    opacity: 0; 
+    transform: translateY(100vh);
+    transition-delay: 1s;
+  }
 }
 </style>

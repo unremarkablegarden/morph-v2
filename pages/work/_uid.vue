@@ -1,21 +1,18 @@
 <template lang='pug'>
 #work(v-if='doc').mx-4.lg-mx-10
-  .my-0.mx-auto.lg-flex
+  .my-0.mx-auto.flex.flex-col.lg-flex-row
   
-    .title.w-full.lg-w-auto.lg-pb-6.lg-pr-8.text-base.lg-pt-34.lg-mt-1px.pt-20
-      h1.uppercase.leading-tight.lg-mr-4.text-2xl.lg-text-3xl.font-bold(v-if='doc.title && doc.title.length') {{ doc.title[0].text }}
-      
-      .hidden.lg-block 
-        content-menu(:data='doc')
+    .title.w-full.lg-w-auto.lg-pb-6.lg-pr-8.text-base.lg-pt-34.lg-mt-1px.order-2.lg-order-2
+      .flex.lg-flex-col.flex-row.w-full.justify-between
+        h1.uppercase.leading-tight.mr-4.lg-mr-4.text-2xl.lg-text-3xl.font-bold(v-if='doc.title && doc.title.length') {{ doc.title[0].text }}
+        
+        content-menu(:data='doc').lg-mt-8.mt-0.lg-mr-4.lg-min-w-36.min-w-30
   
-    .text.w-full.lg-w-5x12.pb-6.lg-pr-14.text-justify.text-sm.lg-text-base.lg-pt-35.pt-4.overflow-y-auto.hyphens-auto
+    .text.w-full.lg-w-5x12.pb-8.lg-pr-14.text-justify.text-sm.lg-text-base.lg-pt-35.pt-4.overflow-y-auto.hyphens-auto.order-3.lg-order-3
       .lg-pb-6.lg-max-w-96
         prismic-rich-text(:field='doc.text', v-if='doc.text.length')
-        
-        .block.lg-hidden
-          content-menu(:data='doc')
     
-    .tabs.lg-pt-37.w-full.min-h-52.lg-min-h-0.overflow-x-hidden
+    .tabs.pt-18.lg-pt-37.w-full.overflow-x-hidden.order-1.lg-order-3.lg-pb-0.pb-4
       transition(name='tabs', :mode="mode")
         .tabb.video(v-if='doc.vimeo_embed.video_id && tab === 1')
           .inner.border-3.border-black
@@ -28,8 +25,6 @@
         .tabb.gallery(v-if='doc.gallery && doc.gallery.length > 1 && tab === 3')
           .inner
             gallery(:gallery='doc.gallery')
-            
-    .block.lg-hidden.pb-10
     
 </template>
 
@@ -95,8 +90,9 @@ export default {
 </style>
 
 <style lang='sass'>
-#work p
-  margin-bottom: 1em
+#work 
+  p
+    margin-bottom: 1em
 </style>
 
 <style>

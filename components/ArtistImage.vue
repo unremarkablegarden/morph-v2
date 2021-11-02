@@ -60,7 +60,12 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import '@/assets/sass/responsive.sass'
+
 #artist-image
   background-size: cover
   background-position: center
+.right-menu
+  +sm
+    display: none !important
 </style>

@@ -1,8 +1,8 @@
 <template lang="pug">
 #info(:class='{ show: show }', v-if='info')
-  button(@click='show = !show').uppercase.relative.z-40 Info
-  .menu(:class='{ "hide-menu": !show }').right-menu.fixed.w-5x12.h-full.top-0.right-0.z-20.overflow-y-auto
-    .text-base.text-left.px-10.pt-35.pb-8.text-justify
+  button(@click='show = !show').uppercase.relative.z-40 Credits
+  .menu(:class='{ "hide-menu": !show }').right-menu.fixed.w-11x12.lg-w-5x12.h-full.top-0.right-0.z-20.overflow-y-auto
+    .text-sm.lg-text-base.text-left.px-4.lg-px-10.lg-pt-35.pt-12.pb-8.text-justify
       prismic-rich-text(:field='info')
       
 </template>

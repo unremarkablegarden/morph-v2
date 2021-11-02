@@ -1,5 +1,5 @@
 <template lang="pug">
-#content-menu.lg-mt-8.mt-4.inline-block.lg-min-w-36.leading-none.text-xs.lg-text-sm.mr-4(v-if='enabled')
+#content-menu.inline-block.leading-none.text-xs.lg-text-sm(v-if='enabled')
   .item(v-if='menu1', :class='{ selected: tab == 1 }', @click='tab = 1')
     .title
       span(v-if='data.video_title_1') {{ data.video_title_1 }}
@@ -65,6 +65,7 @@ export default {
     padding: 0.5rem
     border-bottom: 1px black solid
     cursor: pointer
+    line-height: 1.1em
     &.selected
       background: black
       color: white

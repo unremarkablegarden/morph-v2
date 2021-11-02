@@ -3,7 +3,7 @@
 
   main-menu
   
-  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.lg-top-6.w-full.bg-white.lg-bg-transparent
+  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.lg-top-6.w-full.header
   
     .ham-menu.w-1x3.mx-2.lg-mx-10
       hamburger(:invert='isIndex')
@@ -12,7 +12,7 @@
       nuxt-link(to='/')
         logo(:invert='true')
   
-    .info.w-1x3.text-right.text-2xl.lg-text-3xl.mx-2.lg-mx-10
+    .info.w-1x3.text-right.text-xl.lg-text-2xl.mx-2.lg-mx-10
       .mr-1.lg-mr-0
         info
   
@@ -41,3 +41,9 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.header
+  backdrop-filter: blur(6px)
+  
+</style>

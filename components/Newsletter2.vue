@@ -1,6 +1,6 @@
 <template lang='pug'>
-#newsletter2.text-xs.lg-text-sm.lg-max-w-72.max-w-50
-  .mailchimp.mt-13.lg-mt-20
+#newsletter2.text-xs.lg-text-sm.lg-max-w-72
+  .mailchimp.mt-8.lg-mt-20
     #mc_embed_signup
       form#mc-embedded-subscribe-form.validate(action='https://film.us18.list-manage.com/subscribe/post?u=d8c8dfaa72758f5aac0f13c8e&id=f2f3fbdc57', method='post', name='mc-embedded-subscribe-form', novalidate, target='_blank')
         #mc_embed_signup_scroll
@@ -48,6 +48,7 @@ export default {
       border: 2px black solid
       text-align: center
       background: transparent
+      border-radius: 0
   #mc-embedded-subscribe
     margin-top: 0.5em
     color: white
