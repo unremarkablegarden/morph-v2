@@ -5,7 +5,7 @@
     .title.w-full.lg-w-auto.pb-6.pr-8.text-base.pt-34.mt-1px
       h1.uppercase.leading-tight.mr-4.text-3xl.font-bold(v-if='doc.title && doc.title.length') {{ doc.title[0].text }}
       
-      //- content-menu(:data='doc')
+      content-menu(:data='doc')
   
     .text.w-full.lg-w-5x12.pb-6.pr-14.text-justify.text-base.pt-35.overflow-y-auto.hyphens-auto
       .pb-6.max-w-96
