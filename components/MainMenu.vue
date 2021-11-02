@@ -3,7 +3,7 @@
   template(:class='{ "hide-menu": !artistID }')
     artist-image(:artistUID='artistID', v-if='artistID')
     
-  .menu(:class='{ "hide-menu": !showLeft }').left-menu.fixed.w-full.lg-w-7x12.h-full.top-0.z-20.lg.pl-10.pl-4.overflow-y-auto.lg-overflow-x-hidden
+  .menu(:class='{ "hide-menu": !showLeft }').left-menu.fixed.w-full.lg-w-7x12.top-0.z-20.lg.lg-pl-10.pl-4.overflow-y-auto.lg-overflow-x-hidden
     .lg-flex.flex-wrap.lg-h-full
       .main-menu.w-1x3.font-bold.text-2xl.lg-text-3xl.uppercase(style='height: calc(100% - 2rem)').pt-14.lg-pt-34.mt-3px
         .menu-item(:class='{ "open": subShow.includes("work") }')
@@ -18,7 +18,7 @@
         .menu-item(:class='{ "open": subShow.includes("contact") }')
           span(@click='openSub("contact")').cursor-pointer Contact
         
-      .sub-menus.w-full.lg-w-2x3.lg-text-xl.lg-overflow-y-auto.overflow-y-hidden.overflow-x-hidden.lg-pt-35.lg-pb-20.pt-6.pl-1.lg-pl-0.pr-5.lg-pr-0
+      .sub-menus.w-full.lg-w-2x3.lg-text-xl.lg-overflow-y-auto.overflow-y-hidden.overflow-x-hidden.lg-pt-35.lg-pb-20.pt-6.lg-pl-0.pr-5.lg-pr-0
         
           .sub-menu(ref='work', :class='{ "hide-sub z-40": !subShow.includes("work") }')
           
@@ -48,8 +48,8 @@
                 div(v-if='subShow.includes("contact")')
                   newsletter2
       
-      footer-menu(:showCredit='subShow.includes("contact")')
-</template>
+      footer-menu(:showCredit='subShow.includes("contact")', :section='subShow[0]')
+</template>  
 
 <script>
 export default {
@@ -111,15 +111,22 @@ export default {
 <style lang="sass">
 @import '@/assets/sass/responsive.sass'
 
+// +sm
+//   .h-full
+//     height: 100vh !important
+//     height: calc(var(--vh, 1vh) * 100) !important
+  
 .menu
   backdrop-filter: blur(6px)
   background: #FFFFFFCC
   box-shadow: 0 0 25px 0px #00000022
+  height: 100vh
+  height: calc(var(--vh, 1vh) * 100)
 
 .menu, .hide-menu
-  transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+  transition: transform 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
 .menu-item, .menu-item.open  
-  transition: all 150ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+  transition: transform 150ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
   
 .left-menu.hide-menu
   transform: translateX(-110%)

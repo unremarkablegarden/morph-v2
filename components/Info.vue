@@ -1,7 +1,7 @@
 <template lang="pug">
 #info(:class='{ show: show }', v-if='info')
   button(@click='show = !show').uppercase.relative.z-40 Credits
-  .menu(:class='{ "hide-menu": !show }').right-menu.fixed.w-11x12.lg-w-5x12.h-full.top-0.right-0.z-20.overflow-y-auto
+  .menu(:class='{ "hide-menu": !show }', ref='info').right-menu.fixed.w-11x12.lg-w-5x12.top-0.right-0.z-20.overflow-y-auto
     .text-sm.lg-text-base.text-left.px-4.lg-px-10.lg-pt-35.pt-12.pb-8.text-justify
       prismic-rich-text(:field='info')
       
@@ -28,6 +28,10 @@ export default {
     this.$nuxt.$on('menu-open', (val) => {
       if (val === false) this.closeIt()
     })
+    
+    // window.addEventListener('scroll', function () {
+    //   this.$nuxt.$emit('setVh')  
+    // })
   },
   methods: {
     closeIt () {
@@ -57,6 +61,9 @@ button:focus, button.focus
 
 <style lang='sass'>
 #info
+  .menu
+    height: 100vh
+    height: calc(var(--vh, 1vh) * 100)
   button
     transition: all 300ms ease
   &.show

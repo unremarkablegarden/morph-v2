@@ -1,5 +1,5 @@
 <template lang="pug">
-.footer-menu.flex.uppercase.bottom-0.fixed.z-100.pt-4.pb-3.lg-pb-5.text-xs.lg-text-sm.justify-between
+.footer-menu.flex.uppercase.bottom-0.fixed.z-100.pt-4.pb-3.lg-pb-5.text-xs.lg-text-sm.justify-between(:class='section')
   .flex
     .item.mr-4
       a(href='https://www.instagram.com/morphfilm/', target='_blank') Instagram
@@ -13,13 +13,15 @@
 <script>
 export default {
   name: 'footer-menu',
-  props: ['showCredit']
+  props: ['showCredit', 'section']
 }
 </script>
 
 <style lang='sass' scoped>
 @import '@/assets/sass/responsive.sass'
-
++sm
+  .work, .artists, .about, .contact
+    display: none
 .footer-menu
   width: calc(100% - 2rem)
   +lg

@@ -47,6 +47,7 @@ export default {
   },
   methods: {
     zoom(url, i) {
+      this.$nuxt.$emit('setVh')
       this.zoomed = url
       this.n = i
     },
@@ -60,9 +61,15 @@ export default {
 <style lang="sass" scoped>
 @import '@/assets/sass/responsive.sass'
 
+// +sm
+//   .h-full
+//     height: 100vh !important
+//     height: calc(var(--vh, 1vh) * 100) !important
+  
 .zoomer
   width: 100vw
   height: 100vh
+  height: calc(var(--vh, 1vh) * 100)
   z-index: 200
   backdrop-filter: blur(6px)
   background: #FFFFFFCC
@@ -84,6 +91,7 @@ export default {
     transform: scale(0.9)
     width: 100vw
     height: 100vh
+    height: calc(var(--vh, 1vh) * 100)
     background-size: contain
     background-repeat: no-repeat
     background-position: center
