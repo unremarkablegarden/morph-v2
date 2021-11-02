@@ -33,7 +33,7 @@ export default {
   name: 'work',
   head () {
     return {
-      title: "Morph — " + this.doc.title[0].text,
+      title: "Morph — " + this.title,
       // meta: [
       //   {
       //     hid: 'description',
@@ -47,7 +47,13 @@ export default {
     return {
       tab: 1,
       mode: 'out-in',
-      
+    }
+  },
+  computed: {
+    title () {
+      if (this.doc && this.doc.title.length) {
+        return this.doc.title[0].text
+      }
     }
   },
   mounted () {

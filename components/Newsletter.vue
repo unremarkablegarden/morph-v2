@@ -27,7 +27,7 @@ export default {
   data () {
     return {
       show: false,
-      delay: 5000
+      delay: 10000
     }
   },
   mounted () {
@@ -50,17 +50,17 @@ export default {
 <style lang='sass'>
 #newsletter
   &.show
-    bottom: 2vh !important
-    right: 2vh !important
+    // bottom: 3vh !important
+    right: 3vh !important
     transition: all 700ms ease
-  box-shadow: 0 0 30px 0 #FFFFFF40
+  box-shadow: 0 0 30px 0 #00000030
   // background: white
   // border: 3px black solid
   display: inline-block
   // padding: 2em 1em 1.1em
   position: fixed
   z-index: 50
-  bottom: -1vh
+  bottom: 3vh
   right: -300px
   // +touch
     // top: 127vh

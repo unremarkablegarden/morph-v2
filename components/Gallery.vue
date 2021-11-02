@@ -76,6 +76,7 @@ export default {
 .thumb
   width: calc(100% * 1/6)
 .img
+  background-color: #fafafa
   background-size: cover
   background-position: top
   transition: all 300ms
