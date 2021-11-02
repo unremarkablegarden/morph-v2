@@ -1,9 +1,9 @@
 <template lang="pug">
-#main-header(:class='{ relative: !isIndex, fixed: isIndex }').z-10.w-full
+#main-header(:class='{ relative: !isIndex, fixed: isIndex, index: isIndex, "not-index": !isIndex }').z-10.w-full
 
   main-menu
   
-  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.lg-top-6.w-full.header
+  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.w-full.header.lg-pt-2
   
     .ham-menu.w-1x3.mx-2.lg-mx-10
       hamburger(:invert='isIndex')
@@ -29,6 +29,7 @@ export default {
   computed: {
     isIndex () {
       if (this.route.includes('index')) return true
+      else return false
     }
   },
   watch: {
@@ -43,7 +44,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.header
+.not-index .header 
   backdrop-filter: blur(6px)
   
 </style>

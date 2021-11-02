@@ -48,10 +48,14 @@ export default {
 </script>
 
 <style lang='sass'>
+@import '@/assets/sass/responsive.sass'
+
 #newsletter
   &.show
     // bottom: 3vh !important
     right: 3vh !important
+    +sm
+      right: 2vh !important
     transition: all 700ms ease
   box-shadow: 0 0 30px 0 #00000030
   // background: white
@@ -61,6 +65,8 @@ export default {
   position: fixed
   z-index: 50
   bottom: 3vh
+  +sm
+    bottom: 2vh
   right: -300px
   // +touch
     // top: 127vh
