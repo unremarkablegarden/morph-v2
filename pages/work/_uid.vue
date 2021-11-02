@@ -11,7 +11,7 @@
       .pb-6.max-w-96
         prismic-rich-text(:field='doc.text', v-if='doc.text.length')
     
-    .tabs.pt-37.w-full
+    //- .tabs.pt-37.w-full
       transition(name='tabs', :mode="mode")
         .tabb.video(v-if='doc.vimeo_embed.video_id && tab === 1')
           .inner.border-3.border-black
@@ -31,18 +31,18 @@
 <script>
 export default {
   name: 'work',
-  // head () {
-  //   return {
-  //     title: "Morph — " + this.title,
-  //     // meta: [
-  //     //   {
-  //     //     hid: 'description',
-  //     //     name: 'description',
-  //     //     content: 'My custom description'
-  //     //   }
-  //     // ]
-  //   }
-  // },
+  head () {
+    return {
+      title: "Morph — " + this.title,
+      // meta: [
+      //   {
+      //     hid: 'description',
+      //     name: 'description',
+      //     content: 'My custom description'
+      //   }
+      // ]
+    }
+  },
   data () {
     return {
       tab: 1,
@@ -50,11 +50,11 @@ export default {
     }
   },
   computed: {
-    // title () {
-    //   if (this.doc && this.doc.title && this.doc.title.length) {
-    //     return this.doc.title[0].text
-    //   }
-    // }
+    title () {
+      if (this.doc && this.doc.title && this.doc.title.length) {
+        return this.doc.title[0].text
+      }
+    }
   },
   mounted () {
     this.$nuxt.$on('tab-change', (tab) => {
