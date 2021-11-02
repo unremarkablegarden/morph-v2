@@ -2,8 +2,9 @@
 #gallery(v-if='gallery && gallery.length && gallery[0].image && gallery[0].image.url')
   .thumbs.w-full.overflow-x-auto
     .thumb(v-for='(g, i) in gallery').inline-block.h-auto.cursor-pointer
-      .mr-1.mb-1
-        img(:src='g.image.thumb.url', @click='zoom(g.image.url, i)', :data-n='i')
+      .mr-2.mb-2.thumb-margin
+        .img(:style='"background-image: url("+g.image.thumb.url+")"', :data-n='i', @click='zoom(g.image.url, i)')
+        //- img(:src='g.image.thumb.url', @click='zoom(g.image.url, i)', :data-n='i')
   
   transition(name='fade')
     .zoomer(v-if='zoomed').fixed.top-0.left-0.flex.justify-around.align-middle.w-full.h-full
@@ -73,7 +74,20 @@ export default {
 .thumbs
   line-height: 0
 .thumb
-  width: calc(100% * 1/9)
+  width: calc(100% * 1/6)
+.img
+  background-size: cover
+  background-position: top
+  transition: all 300ms
+  &:hover
+    background-position: bottom
+  &:after
+    content: ""
+    display: block
+    padding-bottom: 100%
+    
+// .thumb:nth-child(4n) .thumb-margin
+//   margin-right: 0 !important
 </style>
 
 <style>
