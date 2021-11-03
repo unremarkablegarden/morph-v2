@@ -25,6 +25,10 @@ export default {
     vimeoID: {
       type: Number,
       default: 0
+    },
+    ratio: {
+      type: String,
+      default: "16:9"
     }
   },
   data () {
@@ -40,12 +44,14 @@ export default {
           // 'mute',
           'fullscreen'
         ],
-        playsinline: true,
+        // playsinline: true,
+        playsinline: false,
         volume: 1,
         hideControls: true,
         tooltips: { controls: false, seek: true },
         fullscreen: { enabled: true, fallback: true, iosNative: true, container: null },
         quality: 1080,
+        ratio: this.ratio,
         vimeo: { 
           byline: false, 
           portrait: false, 

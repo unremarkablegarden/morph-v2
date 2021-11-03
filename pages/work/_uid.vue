@@ -16,11 +16,17 @@
       transition(name='tabs', :mode="mode")
         .tabb.video(v-if='doc.vimeo_embed.video_id && tab === 1')
           .inner.border-3.border-black
-            plyr(:vimeoID='doc.vimeo_embed.video_id')
+            plyr(
+              :vimeoID='doc.vimeo_embed.video_id',
+              :ratio='doc.vimeo_embed.width+":"+doc.vimeo_embed.height'
+            )
       transition(name='tabs', :mode="mode")
         .tabb.video2(v-if='doc.vimeo_embed2.video_id && tab === 2')
-          .inner
-            plyr(:vimeoID='doc.vimeo_embed2.video_id')
+          .inner.border-3.border-black
+            plyr(
+              :vimeoID='doc.vimeo_embed2.video_id',
+              :ratio='doc.vimeo_embed.width+":"+doc.vimeo_embed.height'
+            )
       transition(name='tabs', :mode="mode")
         .tabb.gallery(v-if='doc.gallery && doc.gallery.length > 1 && tab === 3')
           .inner
