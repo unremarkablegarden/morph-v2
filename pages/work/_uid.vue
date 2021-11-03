@@ -8,7 +8,7 @@
         
         content-menu(:data='doc').lg-mt-8.mt-0.lg-mr-4.lg-min-w-36.min-w-30
   
-    .text.w-full.lg-w-5x12.pb-8.lg-pr-14.text-justify.text-sm.lg-text-base.lg-pt-35.pt-4.overflow-y-auto.hyphens-auto.order-3.lg-order-3
+    .text.w-full.lg-w-6x12.pb-8.lg-pr-14.text-justify.text-sm.lg-text-base.lg-pt-35.pt-4.lg-overflow-y-auto.hyphens-auto.order-3.lg-order-3
       .lg-pb-6.lg-max-w-96
         prismic-rich-text(:field='doc.text', v-if='doc.text.length')
     

@@ -1,6 +1,6 @@
 <template lang="pug">
 #logo.z-10(:class='{ "set-fixed": fixed, "left-50vw": fixed, fixed: fixed, relative: !fixed, hide: hide, invert: invert }', v-if='logo')
-  img(:src='logo', :class='{ "mt-4": fixed }').w-60px.lg-w-100px.h-auto
+  img(:src='logo', :class='{ "mt-2": fixed }').w-60px.lg-w-100px.h-auto
 </template>
 
 <script>
