@@ -288,9 +288,22 @@ export default {
 }
 </script>
 
+<style lang='sass'>
+@import '@/assets/sass/responsive.sass'
+.vimeo-player__frame
+  padding-bottom: 56.25%
+  +sm
+    padding-bottom: 100%
+    iframe
+      transform: scale(calc(16/9))
+      
+  
+  
+</style>
+
 <style lang='scss'>
 .vimeo-player__frame {
-  padding-bottom: 56.25%;
+  /* padding-bottom: 56.25%; */
   &.absolute {
     top: 50%; 
     left: 50%;

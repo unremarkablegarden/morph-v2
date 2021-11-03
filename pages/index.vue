@@ -72,14 +72,20 @@ export default {
 
 .project
   height: calc(100vw / 16*9) // video size
+  +sm
+    height: calc(100vw / 1) // mobile video size
   background-color: black
   .thumb
-    height: calc(100vw / 16*9)
+    height: 100vw
+    +sm
+      height: 100vw
     background-size: cover
     background-position: center center
     backface-visibility: hidden
   .loader
     height: calc(100vw / 16*9)
+    +sm
+      height: 100vw
     background: white
     // background-image: url(/loader.gif)
     background-image: url(https://images.prismic.io/morph/4b6110f9-8acc-4028-9802-8ca2460cf5e4_loader.gif?auto=compress)
@@ -94,6 +100,8 @@ export default {
     mix-blend-mode: screen
   .title
     height: calc(100vw / 16*9) // video size
+    +sm
+      height: 100vw
     font-size: 2.2vw
     +sm
       font-size: 1.2rem

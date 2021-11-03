@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.not-index .header 
-  backdrop-filter: blur(6px)
-  
+// .not-index .header 
+  // backdrop-filter: blur(6px)
 </style>

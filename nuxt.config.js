@@ -37,7 +37,8 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/fav/favicon.ico' }
+      // { rel: 'icon', type: 'image/x-icon', href: '/fav/favicon.ico' }
+      { rel: 'icon', type: 'image/png', href: '/fav2.png' }
     ]
   },
 
