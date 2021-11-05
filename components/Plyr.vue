@@ -40,12 +40,13 @@ export default {
           'play',
           'progress',
           'current-time',
-          // 'play-large',
+          'play-large',
           // 'mute',
           'fullscreen'
         ],
         // playsinline: true,
         playsinline: false,
+        clickToPlay: false,
         volume: 1,
         hideControls: true,
         tooltips: { controls: false, seek: true },
@@ -72,12 +73,12 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 #player
   --plyr-color-main: white
   --plyr-control-icon-size: 14px
   --plyr-control-spacing: 10px
-  --plyr-control-padding: --plyr-control-spacing * 0.7 (7px)
+  --plyr-control-padding: --plyr-control-spacing * 0.7
   --plyr-control-toggle-checked-background: #FFFFFF10
   --plyr-video-controls-background: transparent
   --plyr-video-control-color-hover: white
@@ -85,7 +86,20 @@ export default {
   --plyr-range-thumb-height: 5px
   --plyr-range-thumb-shadow: none
   --plyr-font-family: 'f', sans-serif
-  // --plyr-font-weight-regular: 600
-  *
-    font-weight: bold
+  .plyr__control--overlaid 
+    background: #00000033
+    border-radius: 0
+    left: 0
+    top: 0
+    opacity: 1
+    transform: none
+    z-index: 3
+    width: 100% !important
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    svg
+      transform: scale(2.2)
+    
 </style>

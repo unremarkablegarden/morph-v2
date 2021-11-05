@@ -252,9 +252,9 @@ export default {
       this.iframe = this.iframe || this.$el.querySelector('iframe')
       const iframe = this.iframe
       const size = this.bgSize
-      // if (!iframe) { return console.warn('No iframe!') }
+      if (!iframe) { return console.warn('No iframe!') }
       // get aspect ratio
-      if (!this.videoW) {
+      if (!this.videoW && iframe) {
         this.videoW = iframe.getAttribute('width')
         this.videoH = iframe.getAttribute('height')
       }
