@@ -15,7 +15,7 @@
           :class='{ "text-white": !p.color, "text-black": p.color }'
         ).absolute.z-3.uppercase.bold.text-2xl.leading-none.flex.items-center.justify-center.w-full {{ p.title[0].text }}
         
-        //- .z-2.relative
+        .z-2.relative
           vimeo-thumb(v-if='p.vimeo_embed.embed_url', :embed='p.vimeo_embed', :index='i')
 </template>
 
@@ -45,9 +45,9 @@ export default {
   
   mounted () {
     this.$nuxt.$emit('playerDone', 0) // get it rolling
-    setTimeout(() => {
-      this.$nuxt.$emit('playerDone', 1) // get it rolling
-    }, 100)
+    // setTimeout(() => {
+    //   this.$nuxt.$emit('playerDone', 1) // get it rolling
+    // }, 100)
     
     window.addEventListener("scroll", this.onScroll)
   },
