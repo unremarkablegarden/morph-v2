@@ -15,7 +15,7 @@
           :class='{ "text-white": !p.color, "text-black": p.color }'
         ).absolute.z-3.uppercase.bold.text-2xl.leading-none.flex.items-center.justify-center.w-full {{ p.title[0].text }}
         
-        .z-2.relative
+        //- .z-2.relative
           vimeo-thumb(v-if='p.vimeo_embed.embed_url', :embed='p.vimeo_embed', :index='i')
 </template>
 
@@ -76,7 +76,8 @@ export default {
     height: calc(100vw / 1) // mobile video size
   background-color: black
   .thumb
-    height: 100vw
+    // height: 100vw
+    height: calc(100vw / 16*9)
     +sm
       height: 100vw
     background-size: cover
