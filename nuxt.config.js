@@ -1,17 +1,17 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  dev: true,
+  // dev: true,
   
-  generate: {
-    devtools: true
-  },
+  // generate: {
+  //   devtools: true
+  // },
   
-  vue: {
-    config: {
-      devtools: true
-    }
-  },
+  // vue: {
+  //   config: {
+  //     devtools: true
+  //   }
+  // },
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -33,7 +33,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      // { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -44,7 +44,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/sass/global.sass',
+    // '@/assets/sass/global.sass',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -63,8 +63,14 @@ export default {
     // 'nuxt-vite',
     'nuxt-windicss',
     // '@nuxtjs/tailwindcss'
-    '@nuxtjs/prismic'
+    '@nuxtjs/prismic',
+    '@nuxtjs/google-analytics'
   ],
+  
+  googleAnalytics: {
+    // id: 'UA-XXX-X'
+    id: 'UA-133545576-1'
+  },
   
   // windicss: {
   //   analyze: {

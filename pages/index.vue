@@ -2,8 +2,8 @@
 #index(v-if='doc')
   logo(:hide='hide', :fixed='true')
   newsletter
-  
-  .projects
+  xmp {{ doc }}
+  //- .projects
     .project(v-for='(p, i) in projects', v-if='p.link.url && p.vimeo_embed && p.vimeo_embed.thumbnail_url')
       nuxt-link(:to='p.link.url')
         .loader.w-full.absolute.z-1
@@ -20,9 +20,41 @@
 </template>
 
 <script>
+import get from 'lodash/get'
+
 export default {
   name: "index",
   // layout: "index",
+  head () {
+    if (!this.doc) { return }
+    const title_text = get(this.doc, 'title[0].text')
+    const description_text = get(this.doc, 'meta_description[0].text')
+    const img_url = get(this.doc, 'meta_image.url')
+    
+    let meta = [
+      { charset: 'utf-8' }
+    ]
+    
+    const description = {
+      hid: 'description',
+      name: 'description', 
+      content: description_text 
+    }
+    if (description_text && description_text !== 'undefined') meta.push(description)
+      
+    const image = {
+      hid: 'og:image',
+      property: 'og:image',
+      content: img_url
+    }
+    if (img_url && img_url !== 'undefined') meta.push(image)
+    
+    return {
+      title: 'Morph',
+      meta: meta
+    }
+  },
+  
   data () {
     return {
       windowTop: 0,

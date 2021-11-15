@@ -89,6 +89,8 @@ export default {
       else this.subShow = [sel]
       this.artistShow = false
       this.artistID = false
+      this.$ga.event('navigation', 'open', 'submenu', sel)
+      console.log('GA > open submenu > ' + sel)
     },
     toggleArtist (sel) {
       if (this.artistShow === sel.name[0].text) {
@@ -102,6 +104,8 @@ export default {
         // setTimeout(() => {
           this.artistID = sel.link.id
         // }, 10)
+        this.$ga.event('navigation', 'open', 'artist', sel.name[0].text)
+        console.log('GA > open artist > ' + sel.name[0].text)
       }
     }
   },

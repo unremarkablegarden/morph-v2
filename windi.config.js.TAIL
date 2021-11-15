@@ -41,36 +41,6 @@ module.exports = {
       full: '100%',
       screen: '100vw',
       'grid_20': 'calc(100% + 4rem)',
-    }),
-    // purge: {
-    //   // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    //   enabled: process.env.NODE_ENV === 'production',
-    //   content: [
-    //     'components/**/*.vue',
-    //     'slices/**/*.vue',
-    //     'layouts/**/*.vue',
-    //     'pages/**/*.vue',
-    //     'plugins/**/*.js',
-    //     'nuxt.config.js'
-    //   ],
-    //   options: {
-    //     whitelistPatterns: [
-    //       // pug classes
-    //       // https://github.com/tailwindlabs/tailwindcss/pull/1639#issuecomment-623703605
-    //       /^.[^\.]*\.[^\. "']*/,
-    //       // vue transition classes
-    //       /-enter-active$/,
-    //       /-leave-active$/,
-    //       /-enter$/,
-    //       /-leave-to$/,
-    //       // content-dynamic classes
-    //       /col-span-/,
-    //       /col-start-/,
-    //       /x12$/, // dynamic widths (w-5x12, md-w-6x12)
-    //       /text-white/,
-    //       /bg-transparent/,
-    //     ]
-    //   }
-    // }
+    })
   }
 }

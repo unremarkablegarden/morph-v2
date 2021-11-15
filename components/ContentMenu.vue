@@ -1,15 +1,15 @@
 <template lang="pug">
 #content-menu.inline-block.leading-none.text-xs.lg-text-sm(v-if='enabled')
-  .item(v-if='menu1', :class='{ selected: tab == 1 }', @click='tab = 1')
+  .item(v-if='menu1', :class='{ selected: tab == 1 }', @click='openTab(1, data.video_title_1)')
     .title
       span(v-if='data.video_title_1') {{ data.video_title_1 }}
       span(v-else) {{ data.vimeo_embed.title }}
-  .item(v-if='menu2', :class='{ selected: tab == 2 }', @click='tab = 2')
+  .item(v-if='menu2', :class='{ selected: tab == 2 }', @click='openTab(2, data.video_title_2)')
     .title 
       span(v-if='data.video_title_2') {{ data.video_title_2 }}
       span(v-else) {{ data.vimeo_embed2.title }}
     
-  .item(v-if='menu3', :class='{ selected: tab == 3 }', @click='tab = 3')
+  .item(v-if='menu3', :class='{ selected: tab == 3 }', @click='openTab(3, data.gallery_title)')
     .title 
       span(v-if='data.gallery_title') {{ data.gallery_title }}
       span(v-else) Image gallery
@@ -26,6 +26,13 @@ export default {
   watch: {
     tab () {
       this.$nuxt.$emit('tab-change', this.tab)
+    }
+  },
+  methods: {
+    openTab (tabN, tabName) {
+      this.tab = tabN
+      this.$ga.event('navigation', 'open', 'tab', tabName)
+      console.log('GA > open tab > ' + tabName)
     }
   },
   computed: {
