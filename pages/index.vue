@@ -2,8 +2,8 @@
 #index(v-if='doc')
   logo(:hide='hide', :fixed='true')
   newsletter
-  xmp {{ doc }}
-  //- .projects
+
+  .projects
     .project(v-for='(p, i) in projects', v-if='p.link.url && p.vimeo_embed && p.vimeo_embed.thumbnail_url')
       nuxt-link(:to='p.link.url')
         .loader.w-full.absolute.z-1
