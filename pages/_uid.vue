@@ -42,6 +42,32 @@ export default {
     }
     if (img_url && img_url !== 'undefined') meta.push(image)
     
+    const twitter = [
+      // { name: "twitter:site", content: "@bobross" },
+      { name: "twitter:card", content: "summary_large_image" },
+      // {
+      //   hid: "twitter:url",
+      //   name: "twitter:url",
+      //   content: "https://morph.film/",
+      // },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: title_text,
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: description_text,
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: img_url,
+      },
+    ]
+    meta = [...meta, ...twitter]
+    
     return {
       title: 'Morph — ' + title_text,
       meta: meta
