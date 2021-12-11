@@ -70,6 +70,7 @@ typings/
 
 # Nuxt generate
 dist
+!plugins/vue-plyr/dist
 
 # vuepress build output
 .vuepress/dist
