@@ -3,16 +3,16 @@
 
   main-menu
   
-  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.w-full.header.lg-pt-2
+  header.z-30.text-center.flex.justify-between.items-center.fixed.top-0.w-full.header.lg-pt-2.lg-h-56px
   
-    .ham-menu.w-1x3.mx-2.lg-mx-10
+    .ham-menu.w-1x3.mx-2.lg-mx-10.pt-1
       hamburger(:invert='isIndex')
   
     .logo.w-1x3.mx-2.lg-mx-10.mt-2.lg-mt-0(:class='{ "opacity-0": isIndex }')
       nuxt-link(to='/')
         logo(:invert='true')
   
-    .info.w-1x3.text-right.text-xl.lg-text-2xl.mx-2.lg-mx-10
+    .info.w-1x3.text-right.text-xl.lg-text-2xl.mx-2.lg-mx-10.pt-1
       .mr-1.lg-mr-0
         info
   
