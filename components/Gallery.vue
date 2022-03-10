@@ -11,42 +11,18 @@
       //- img(:src='zoomed')
       .zoom-img(:style='"background-image: url("+zoomed+")"')
 
-  transition(name='fade')
-    .slider-wrapper(v-if='n')
-      keen-slider(ref='slider', vertical, loop, :duration='300', :initial='n', :dragSpeed='1', :mode='"snap"').slider
-        keen-slide.item(v-for='(p, i) in gallery', :key='i', :class='["slide"+i]', v-if='p')
-          .inner
-            .single
-              .image(:style='"background-image: url("+p.image.url+"); background-size: contain"')
-      .nav
-        .control.prev(
-          @click='nav("prev")'
-        )
-        .control.next(
-          @click='nav("next")'
-        )
-        .close.fixed.top-2.right-2.lg-top-4.lg-right-4.text-3xl.w-8.cursor-pointer(@click='n = false') ✕
-        
-  //- {
-  //-   "image": {
-  //-     "dimensions": {
-  //-       "width": 1801,
-  //-       "height": 2700
-  //-     },
-  //-     "alt": null,
-  //-     "copyright": null,
-  //-     "url": "https://images.prismic.io/morph/15552151-caaa-4777-9af0-e763d82ed940_SS21-milano-catwalk-look23.jpg?auto=compress,format&rect=0,0,2049,3072&w=1801&h=2700",
-  //-     "thumb": {
-  //-       "dimensions": {
-  //-         "width": 800,
-  //-         "height": 1200
-  //-       },
-  //-       "alt": null,
-  //-       "copyright": null,
-  //-       "url": "https://images.prismic.io/morph/15552151-caaa-4777-9af0-e763d82ed940_SS21-milano-catwalk-look23.jpg?auto=compress,format&rect=0,0,2048,3072&w=800&h=1200"
-  //-     }
-  //-   }
-  //- },
+  //- transition(name='fade')
+  .slider-wrapper(v-if='n !== false')
+    keen-slider(ref='slider', vertical, loop, :duration='300', :initial='n', :dragSpeed='1', :mode='"snap"', :class='{ "blurit": blurit }').slider
+      keen-slide.item(v-for='(p, i) in gallery', :key='i', :class='["slide"+i]', v-if='p')
+        .inner
+          .single
+            .image(:style='"background-image: url("+p.image.url+"); background-size: contain"', :class='{ "hideImage": hideImage }')
+    .nav
+      .control.prev(@click='nav("prev")')
+      .control.next(@click='nav("next")')
+      .close.fixed.top-2.right-2.lg-top-4.lg-right-4.text-3xl.w-8.cursor-pointer(@click='closeGallery') ✕
+
 </template>
 
 <script>
@@ -56,14 +32,35 @@ export default {
   data () {
     return {
       // zoomed: false,
-      n: false
+      n: false,
+      blurit: false,
+      hideImage: true
+    }
+  },
+  watch: {
+    n () {
+      if (this.n !== false) {
+        setTimeout(() => {
+          this.hideImage = false
+          this.blurit = true
+        }, 1)
+      }
     }
   },
   methods: {
+    closeGallery () {
+      this.blurit = false
+      this.hideImage = true
+      setTimeout(() => {
+        this.n = false
+      }, 501)
+    },
     zoom(url, i) {
+      console.log('zoom', url, i)
       this.$nuxt.$emit('setVh')
       // this.zoomed = url
       this.n = i
+      console.log(this.n)
     },
     nav (dir) { 
       // console.log('nav ' + dir)
@@ -140,18 +137,30 @@ export default {
   height: 100vh
   z-index: 200
   // height: calc(var(--vh, 1vh) * 100)
-  backdrop-filter: blur(6px)
-  background: #FFFFFFCC
-  // background-image: url(https://images.prismic.io/morph/4b6110f9-8acc-4028-9802-8ca2460cf5e4_loader.gif?auto=compress)
-  // background-size: 20px auto
-  // background-position: 50% 43%
-  // background-repeat: no-repeat
+  backdrop-filter: blur(0px)
+  background: #FFFFFF00
+  transition: backdrop-filter 500ms ease-in, background 500ms ease-in
+  &.blurit
+    transition: backdrop-filter 500ms ease-out, background 500ms ease-out
+    backdrop-filter: blur(6px)
+    background: #FFFFFFCC
+    
+  .image
+    opacity: 1
+    filter: blur(0px)
+    transition: opacity 500ms ease-in, filter 500ms ease-in
+  .hideImage
+    opacity: 0
+    filter: blur(20px)
+    transition: opacity 500ms ease-out, filter 500ms ease-out
+  
 .nav
   position: relative
   z-index: 250
 .close
   position: fixed
   z-index: 300
+  width: 1.6em
 
 .item
   height: 100vh
@@ -188,10 +197,10 @@ export default {
 
 <style>
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 300ms ease-out;
+  transition: opacity 1300ms ease-out;
 }
 .fade-enter, .fade-leave-to{
-  transition: opacity 300ms ease-in;
+  transition: opacity 1300ms ease-in;
   opacity: 0;
 }
 </style>
