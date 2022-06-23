@@ -11,8 +11,8 @@
         .menu-item(:class='{ "open": subShow.includes("artists") }')
           span(@click='openSub("artists")').cursor-pointer Artists
         .menu-item
-          a(href='https://shop.morph.film', target='_blank') Shop
-          //- .opacity-20 Shop
+          //- a(href='https://shop.morph.film', target='_blank') Shop
+          .opacity-20 Shop
         .menu-item(:class='{ "open": subShow.includes("about") }')
           span(@click='openSub("about")').cursor-pointer About
         .menu-item(:class='{ "open": subShow.includes("contact") }')
