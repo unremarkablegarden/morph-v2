@@ -10,7 +10,7 @@
           span(@click='openSub("work")').cursor-pointer Work
         .menu-item(:class='{ "open": subShow.includes("artists") }')
           span(@click='openSub("artists")').cursor-pointer Artists
-        .menu-item
+        //- .menu-item
           //- a(href='https://shop.morph.film', target='_blank') Shop
           .opacity-20 Shop
         .menu-item(:class='{ "open": subShow.includes("about") }')
@@ -23,10 +23,10 @@
           .sub-menu(ref='work', :class='{ "hide-sub z-40": !subShow.includes("work") }')
           
             .sub-inner.mb-6
-              .item(v-for='(m,i) in menu.work_artistic', v-if='m.title.length && m.title[0].text', :data-n='i+1')
+              .item(v-for='(m,i) in menu.work_artistic', v-if='m.title.length && m.title[0].text && m.link.url', :data-n='i+1')
                 nuxt-link(:to='m.link.url') {{ m.title[0].text }}
             .sub-inner
-              .item(v-for='(m,i) in menu.work_commercial', v-if='m.title.length && m.title[0].text', :data-n='i + 1 + menu.work_artistic.length')
+              .item(v-for='(m,i) in menu.work_commercial', v-if='m.title.length && m.title[0].text && m.link.url', :data-n='i + 1 + menu.work_artistic.length')
                 nuxt-link(:to='m.link.url') {{ m.title[0].text }}
                 
           .sub-menu(ref='artists', :class='{ "hide-sub  z-40": !subShow.includes("artists") }').lg-pr-20

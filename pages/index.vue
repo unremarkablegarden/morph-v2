@@ -5,7 +5,7 @@
 
   .projects
     .project(v-for='(p, i) in projects', v-if='p.link.url && p.vimeo_embed && p.vimeo_embed.thumbnail_url')
-      nuxt-link(:to='p.link.url')
+      nuxt-link(:to='p.link.url' v-if='p.link.url')
         .loader.w-full.absolute.z-1
         
         .thumb(v-if='p.vimeo_embed.thumbnail_url', :style='"background-image: url(" + p.vimeo_embed.thumbnail_url.replace("_640", "_1280") + ");"').absolute.z-0.w-full
