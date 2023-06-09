@@ -110,7 +110,17 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/sitemap'
   ],
+  
+  sitemap: {
+    hostname: 'https://morph.film',
+    // gzip: true,
+    exclude: [
+      '/shop',
+    ],
+    
+  },
   
   server: {
     host: '0' // default: localhost
